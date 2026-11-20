@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedUFC Fortaleza 2027 | Plataforma Autodidata ENEM</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              950: '#060d1f',
+              900: '#0b1736',
+              800: '#132654',
+              700: '#1d3a7a',
+              600: '#2552ad',
+              500: '#3b73e0',
+            },
+            goldMed: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar { width: 7px; height: 7px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(100, 116, 139, 0.35); border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(100, 116, 139, 0.6); }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-brand-950 dark:text-slate-100 transition-colors duration-200 min-h-screen flex flex-col lg:flex-row">
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- Modal Container -->
+  <div id="modal-overlay" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div id="modal-content" class="bg-white dark:bg-brand-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-lg w-full p-6 shadow-2xl transform transition-all"></div>
+  </div>
+
+  <!-- Mobile Header -->
+  <header class="lg:hidden sticky top-0 z-40 bg-brand-900 text-white px-4 py-3 flex items-center justify-between shadow-md">
+    <div class="flex items-center gap-2.5">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-brand-950 font-extrabold text-lg shadow">
+        <i class="fa-solid fa-stethoscope"></i>
+      </div>
+      <div>
+        <h1 class="font-extrabold text-base tracking-tight leading-none">MedUFC <span class="text-goldMed-400">Fortaleza 2027</span></h1>
+        <p class="text-[11px] text-slate-300">Escola Pública • Saída 18h30 • 100% YouTube</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <button onclick="toggleDarkMode()" class="p-2.5 rounded-xl bg-brand-800 hover:bg-brand-700 text-slate-200" title="Alternar Tema">
+        <i id="mobile-theme-icon" class="fa-solid fa-moon"></i>
+      </button>
+      <button onclick="toggleMobileMenu()" class="p-2.5 rounded-xl bg-brand-800 hover:bg-brand-700 text-white" title="Abrir Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Sidebar Navigation -->
+  <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-72 bg-brand-900 text-white flex flex-col justify-between transform -translate-x-full lg:translate-x-0 lg:static transition-transform duration-300 ease-in-out border-r border-brand-800 shrink-0">
+    <div>
+      <!-- Brand Logo -->
+      <div class="p-6 border-b border-brand-800/80 hidden lg:flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-600 flex items-center justify-center text-brand-950 font-extrabold text-xl shadow-lg shadow-emerald-500/20">
+            <i class="fa-solid fa-staff-snake"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="font-extrabold text-lg tracking-tight">MedUFC</span>
+              <span class="px-1.5 py-0.5 text-[10px] font-bold rounded bg-goldMed-500/20 text-goldMed-400 border border-goldMed-500/30">2027</span>
+            </div>
+            <p class="text-xs text-slate-400 font-medium">Campus Fortaleza • CE</p>
+          </div>
+        </div>
+        <button onclick="toggleDarkMode()" class="p-2 rounded-xl bg-brand-800/80 hover:bg-brand-700 text-slate-300 transition" title="Alternar Tema Claro/Escuro">
+          <i id="desktop-theme-icon" class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+
+      <!-- Target Badge -->
+      <div class="mx-4 mt-4 p-3.5 rounded-xl bg-gradient-to-r from-brand-800 to-brand-800/60 border border-brand-700/60">
+        <div class="flex items-center justify-between text-xs mb-1">
+          <span class="text-slate-300 font-medium"><i class="fa-solid fa-bullseye text-emerald-400 mr-1.5"></i><span id="sidebar-target-label">Meta LI_EP (UFC)</span></span>
+          <span id="sidebar-target-score" class="font-mono font-bold text-goldMed-400">802,42</span>
+        </div>
+        <div class="w-full bg-brand-950 rounded-full h-2 overflow-hidden">
+          <div id="sidebar-progress-bar" class="bg-gradient-to-r from-emerald-400 to-goldMed-400 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+        </div>
+        <div class="flex justify-between text-[11px] text-slate-400 mt-1.5">
+          <span id="sidebar-progress-text">0% do edital</span>
+          <span id="sidebar-streak-text">🔥 0 dias</span>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="p-4 space-y-1.5">
+        <button onclick="switchTab('dashboard')" data-tab="dashboard" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all bg-brand-600 text-white shadow-lg shadow-brand-600/25">
+          <i class="fa-solid fa-chart-line w-5 text-center"></i>
+          <span>Visão Geral & UFC</span>
+        </button>
+        <button onclick="switchTab('schedule')" data-tab="schedule" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-slate-300 hover:bg-brand-800 hover:text-white transition-all">
+          <i class="fa-solid fa-calendar-check w-5 text-center"></i>
+          <span>Cronograma Jan–Nov</span>
+          <span class="ml-auto text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">46 Sem</span>
+        </button>
+        <button onclick="switchTab('simulados')" data-tab="simulados" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-slate-300 hover:bg-brand-800 hover:text-white transition-all">
+          <i class="fa-solid fa-file-pen w-5 text-center"></i>
+          <span>Simulados & Redações</span>
+        </button>
+        <button onclick="switchTab('channels')" data-tab="channels" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-slate-300 hover:bg-brand-800 hover:text-white transition-all">
+          <i class="fa-brands fa-youtube w-5 text-center text-red-400"></i>
+          <span>Canais & Guia ENEM 2027</span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Bottom Data Backup & Motivation -->
+    <div class="p-4 border-t border-brand-800 space-y-3">
+      <div class="p-3 rounded-xl bg-brand-950/60 border border-brand-800/80 text-xs text-slate-300 leading-relaxed">
+        <p class="font-semibold text-emerald-400 mb-1"><i class="fa-solid fa-shield-heart mr-1"></i> Rotina Turno Tarde (Saída 18h30)</p>
+        "Manhã pesada (08h–11h45) + Escola à tarde + Noite leve (19h45–20h30). Disciplina diária vence qualquer cursinho caro."
+      </div>
+      <div class="grid grid-cols-2 gap-2">
+        <button onclick="exportBackup()" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-brand-800 hover:bg-brand-700 text-xs font-semibold text-slate-200 transition">
+          <i class="fa-solid fa-download"></i> Backup
+        </button>
+        <label class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-brand-800 hover:bg-brand-700 text-xs font-semibold text-slate-200 transition cursor-pointer">
+          <i class="fa-solid fa-upload"></i> Restaurar
+          <input type="file" id="import-file" accept=".json" class="hidden" onchange="importBackup(event)" />
+        </label>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="flex-1 min-w-0 overflow-y-auto">
+    <div class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 space-y-6">
+
+      <!-- ==================== TAB 1: DASHBOARD ==================== -->
+      <section id="tab-dashboard" class="tab-content space-y-6">
+        <!-- Top Banner -->
+        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-900 via-brand-800 to-indigo-950 text-white p-6 sm:p-8 shadow-xl border border-brand-700/50">
+          <div class="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+            <div class="space-y-2.5 max-w-2xl">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-bold uppercase tracking-wider">
+                <i class="fa-solid fa-graduation-cap"></i> MEDICINA UFC — FORTALEZA (CE) • ENEM 2027
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">
+                Sua aprovação em Medicina na UFC Fortaleza começa hoje.
+              </h2>
+              <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                Planejamento 100% gratuito pelo YouTube adaptado à sua rotina. Na UFC Fortaleza, todas as 5 provas têm <strong>Peso 1,00 (Média Aritmética Simples ÷ 5)</strong> — Matemática e Redação valem exatamente o mesmo que Natureza!
+              </p>
+
+              <!-- Interactive Quota Modality Selector -->
+              <div class="pt-1">
+                <label class="block text-[11px] font-bold uppercase tracking-wider text-emerald-300 mb-1.5">
+                  <i class="fa-solid fa-user-check mr-1"></i> Sua Modalidade de Concorrência:
+                </label>
+                <div id="modality-selector-pills" class="flex flex-wrap gap-2"></div>
+              </div>
+            </div>
+            <div class="flex flex-wrap sm:flex-nowrap gap-3 shrink-0">
+              <div class="bg-brand-950/70 border border-brand-700/70 rounded-2xl p-4 text-center min-w-[125px]">
+                <span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold block">Contagem ENEM</span>
+                <span id="countdown-days" class="text-2xl sm:text-3xl font-mono font-extrabold text-goldMed-400 mt-1 block">352</span>
+                <span class="text-xs text-slate-300">dias restantes</span>
+              </div>
+              <div class="bg-brand-950/70 border border-emerald-500/40 rounded-2xl p-4 text-center min-w-[165px]">
+                <span id="banner-target-modality" class="text-[11px] uppercase tracking-wider text-emerald-300 font-bold block">LI_EP • Escola Pública</span>
+                <span id="banner-target-score" class="text-2xl sm:text-3xl font-mono font-extrabold text-emerald-400 mt-1 block">802,42</span>
+                <span class="text-xs text-slate-300">média simples UFC</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- KPI Stats Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+          <div class="bg-white dark:bg-brand-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Aulas Concluídas</span>
+              <div class="w-9 h-9 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                <i class="fa-solid fa-circle-play"></i>
+              </div>
+            </div>
+            <div class="mt-3 flex items-baseline gap-2">
+              <span id="stat-lessons-done" class="text-3xl font-extrabold font-mono">0</span>
+              <span id="stat-lessons-total" class="text-sm text-slate-500 font-mono">/ 0</span>
+            </div>
+            <div class="mt-3 w-full bg-slate-100 dark:bg-brand-950 rounded-full h-2">
+              <div id="stat-lessons-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-brand-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Questões Resolvidas</span>
+              <div class="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                <i class="fa-solid fa-check-double"></i>
+              </div>
+            </div>
+            <div class="mt-3 flex items-baseline gap-2">
+              <span id="stat-questions-done" class="text-3xl font-extrabold font-mono text-emerald-600 dark:text-emerald-400">0</span>
+              <span id="stat-questions-target" class="text-xs text-slate-500">meta: 13.500+</span>
+            </div>
+            <p id="stat-accuracy-text" class="mt-2 text-xs font-medium text-slate-500 dark:text-slate-400">
+              Aproveitamento geral: <strong class="text-slate-800 dark:text-slate-200">0%</strong>
+            </p>
+          </div>
+
+          <div class="bg-white dark:bg-brand-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Média Simples UFC</span>
+              <div class="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+                <i class="fa-solid fa-trophy"></i>
+              </div>
+            </div>
+            <div class="mt-3 flex items-baseline gap-2">
+              <span id="stat-simulado-avg" class="text-3xl font-extrabold font-mono text-amber-600 dark:text-goldMed-400">--</span>
+              <span class="text-xs text-slate-500">pts UFC (÷ 5)</span>
+            </div>
+            <p id="stat-simulado-count" class="mt-2 text-xs font-medium text-slate-500 dark:text-slate-400">
+              0 simulados registrados
+            </p>
+          </div>
+
+          <div class="bg-white dark:bg-brand-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Ofensiva / Streak</span>
+              <div class="w-9 h-9 rounded-xl bg-orange-500/10 text-orange-500 flex items-center justify-center">
+                <i class="fa-solid fa-fire"></i>
+              </div>
+            </div>
+            <div class="mt-3 flex items-baseline gap-2">
+              <span id="stat-streak" class="text-3xl font-extrabold font-mono">0</span>
+              <span class="text-sm text-slate-500">dias ativos</span>
+            </div>
+            <p class="mt-2 text-xs font-medium text-slate-500 dark:text-slate-400">
+              Domingo: descanso obrigatório <i class="fa-solid fa-bed text-indigo-400 ml-1"></i>
+            </p>
+          </div>
+        </div>
+
+        <!-- Middle Section: Today's Focus -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="lg:col-span-2 bg-white dark:bg-brand-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-slate-100 dark:border-slate-800">
+                <div>
+                  <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Hoje no Seu Cronograma</span>
+                  <h3 id="dash-current-week-title" class="text-lg font-extrabold mt-0.5">Semana 1 • Janeiro</h3>
+                </div>
+                <button onclick="switchTab('schedule')" class="px-4 py-2 rounded-xl bg-brand-900 dark:bg-brand-600 hover:bg-brand-800 text-white text-xs font-bold transition flex items-center gap-2">
+                  <span>Abrir Cronograma Completo</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+
+              <div id="dash-day-pills" class="flex flex-wrap gap-2 my-4"></div>
+              <div id="dash-day-tasks" class="space-y-3"></div>
+            </div>
+          </div>
+
+          <!-- UFC Fortaleza Rules Card -->
+          <div class="bg-white dark:bg-brand-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm space-y-5">
+            <div>
+              <div class="flex items-center justify-between gap-2 text-brand-700 dark:text-goldMed-400 font-extrabold text-base">
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-scale-balanced"></i>
+                  <h3>Regra SISU • UFC</h3>
+                </div>
+                <span class="px-2 py-0.5 rounded-md bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 text-[10px] font-mono font-bold">Peso 1,00 Tudo</span>
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+                Na UFC Fortaleza, todas as 5 áreas têm <strong>Peso 1,00 (Média Aritmética Simples: soma ÷ 5)</strong>. Matemática e Redação são as maiores alavancas para passar de 800+!
+              </p>
+            </div>
+            
+            <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/25 space-y-1.5">
+              <div class="text-xs font-bold text-amber-800 dark:text-goldMed-400 flex items-center justify-between">
+                <span>Notas de Corte Referência (UFC)</span>
+              </div>
+              <div class="text-[11px] text-slate-600 dark:text-slate-300 space-y-1">
+                <div class="flex justify-between"><span>Ampla Concorrência:</span> <strong class="font-mono">815,34 pts</strong></div>
+                <div class="flex justify-between"><span>Escola Pública (LI_EP):</span> <strong class="font-mono text-emerald-700 dark:text-emerald-400">802,42 pts</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB 2: CRONOGRAMA ==================== -->
+      <section id="tab-schedule" class="tab-content hidden space-y-6">
+        <div class="bg-white dark:bg-brand-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 sm:p-6 shadow-sm space-y-5">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Planejamento Anual Completo (46 Semanas)</span>
+              <h2 class="text-xl sm:text-2xl font-extrabold mt-0.5">Cronograma de Estudos • Janeiro a Novembro</h2>
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="navigateWeek(-1)" class="px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-brand-800 hover:bg-slate-200 dark:hover:bg-brand-700 text-xs font-bold transition">
+                <i class="fa-solid fa-chevron-left mr-1"></i> Anterior
+              </button>
+              <button onclick="navigateWeek(1)" class="px-3.5 py-2.5 rounded-xl bg-brand-900 dark:bg-brand-600 hover:bg-brand-800 text-white text-xs font-bold transition">
+                Próxima <i class="fa-solid fa-chevron-right ml-1"></i>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <label class="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-2">Selecione o Mês:</label>
+            <div id="month-selector" class="flex flex-wrap gap-1.5"></div>
+          </div>
+
+          <div>
+            <label class="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-2">Semanas do Mês:</label>
+            <div id="week-selector" class="grid grid-cols-2 sm:grid-cols-4 gap-2"></div>
+          </div>
+        </div>
+
+        <div id="week-header-banner" class="rounded-2xl bg-gradient-to-r from-brand-900 to-brand-800 text-white p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-md border border-brand-700/50"></div>
+        <div id="week-days-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-5"></div>
+      </section>
+
+      <!-- ==================== TAB 3: SIMULADOS ==================== -->
+      <section id="tab-simulados" class="tab-content hidden space-y-6">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- Register New Simulado Form -->
+          <div class="bg-white dark:bg-brand-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm space-y-4">
+            <div class="flex items-center gap-2.5">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-600 dark:text-goldMed-400 flex items-center justify-center text-lg">
+                <i class="fa-solid fa-calculator"></i>
+              </div>
+              <div>
+                <h3 class="font-extrabold text-base">Registrar Simulado</h3>
+                <p class="text-xs text-slate-500">Média Simples UFC (÷ 5)</p>
+              </div>
+            </div>
+
+            <form id="simulado-form" onsubmit="saveSimulado(event)" class="space-y-3.5">
+              <div>
+                <label class="block text-xs font-bold mb-1">Nome do Simulado</label>
+                <input type="text" id="sim-name" required placeholder="Ex: ENEM 2024" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-brand-950 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-bold mb-1">Data</label>
+                  <input type="date" id="sim-date" required class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-brand-950 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold mb-1">Tipo</label>
+                  <select id="sim-type" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-brand-950 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                    <option value="Completo">Completo (180q)</option>
+                    <option value="Dia 1">Dia 1 (90q + Red)</option>
+                    <option value="Dia 2">Dia 2 (90q)</option>
+                    <option value="Mini">Mini (45q)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="p-3 rounded-xl bg-slate-50 dark:bg-brand-950/80 border border-slate-200 dark:border-slate-800 space-y-2.5">
+                <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Acertos (0 a 45)</p>
+                <div class="grid grid-cols-2 gap-2.5">
+                  <div><label class="block text-[11px] font-semibold">Linguagens</label><input type="number" id="sim-lc" min="0" max="45" value="35" required class="w-full mt-0.5 px-2.5 py-1.5 rounded-lg bg-white dark:bg-brand-900 border border-slate-200 dark:border-slate-700 text-sm font-mono" /></div>
+                  <div><label class="block text-[11px] font-semibold">Humanas</label><input type="number" id="sim-ch" min="0" max="45" value="38" required class="w-full mt-0.5 px-2.5 py-1.5 rounded-lg bg-white dark:bg-brand-900 border border-slate-200 dark:border-slate-700 text-sm font-mono" /></div>
+                  <div><label class="block text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">Natureza</label><input type="number" id="sim-cn" min="0" max="45" value="34" required class="w-full mt-0.5 px-2.5 py-1.5 rounded-lg bg-white dark:bg-brand-900 border border-emerald-500/40 text-sm font-mono" /></div>
+                  <div><label class="block text-[11px] font-semibold text-blue-600 dark:text-blue-400">Matemática</label><input type="number" id="sim-mt" min="0" max="45" value="38" required class="w-full mt-0.5 px-2.5 py-1.5 rounded-lg bg-white dark:bg-brand-900 border border-blue-500/40 text-sm font-mono" /></div>
+                </div>
+                <div>
+                  <label class="block text-[11px] font-semibold text-pink-600 dark:text-pink-400">Nota Redação (0 a 1000)</label>
+                  <input type="number" id="sim-red" min="0" max="1000" step="20" value="920" required class="w-full mt-0.5 px-2.5 py-1.5 rounded-lg bg-white dark:bg-brand-900 border border-pink-500/40 text-sm font-mono" />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold mb-1">Erros a Revisar</label>
+                <textarea id="sim-notes" rows="2" placeholder="Ex: Errei eletrodinâmica..." class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-brand-950 border border-slate-200 dark:border-slate-700 text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg shadow-emerald-600/20 transition">
+                <i class="fa-solid fa-plus-circle mr-1.5"></i> Salvar Simulado
+              </button>
+            </form>
+          </div>
+
+          <div class="lg:col-span-2 space-y-6">
+            <div class="bg-white dark:bg-brand-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
+              <h3 class="font-extrabold text-base mb-4">Histórico de Simulados</h3>
+              <div id="simulados-list" class="space-y-3"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB 4: CANAIS & GUIA ==================== -->
+      <section id="tab-channels" class="tab-content hidden space-y-6">
+        <div class="bg-gradient-to-r from-brand-900 to-slate-900 text-white rounded-2xl p-6 sm:p-8 border border-brand-800 shadow-lg space-y-2">
+          <h2 class="text-2xl font-extrabold">Canais do YouTube & Guia ENEM 2027</h2>
+          <p class="text-slate-300 text-sm max-w-3xl leading-relaxed">
+            Ecossistema fechado com os 5 professores selecionados e todas as regras oficiais para ingressar em Medicina na UFC.
+          </p>
+        </div>
+
+        <div id="channels-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+
+        <div class="bg-white dark:bg-brand-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="font-extrabold text-base flex items-center gap-2">
+              <i class="fa-solid fa-list-check text-emerald-500"></i>
+              <span>Checklist Oficial da Candidata UFC Fortaleza</span>
+            </h3>
+            <span id="official-checklist-counter" class="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">0/7 prontos</span>
+          </div>
+          <div id="official-checklist-items" class="space-y-2.5"></div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    // =========================================================================
+    // 0. DADOS E ESTADO
+    // =========================================================================
+    const UFC_MODALITIES = {
+      li_ep: { id: 'li_ep', code: 'LI_EP', shortLabel: 'LI_EP • Escola Pública', sidebarLabel: 'Meta LI_EP', cutoff: 802.42, cutoffDisplay: '802,42' },
+      lb_ep: { id: 'lb_ep', code: 'LB_EP', shortLabel: 'LB_EP • Escola Pública (Renda ≤1 SM)', sidebarLabel: 'Meta LB_EP', cutoff: 778.08, cutoffDisplay: '778,08' },
+      ac: { id: 'ac', code: 'AC', shortLabel: 'Ampla Concorrência', sidebarLabel: 'Meta Ampla', cutoff: 815.34, cutoffDisplay: '815,34' }
+    };
+
+    const OFFICIAL_CHECKLIST_DATA = [
+      { id: 'chk-govbr', title: 'Criar/Validar conta Gov.br e conferir CPF', detail: 'Necessário para acessar o INEP e o SISU.' },
+      { id: 'chk-doc', title: 'Conferir Documento Oficial com Foto (RG ou CIN)', detail: 'Garantir documento físico original em bom estado.' },
+      { id: 'chk-isencao', title: 'Solicitar Isenção da Taxa do ENEM 2027', detail: 'Como concluinte do 3º ano em escola pública, você tem isenção 100% gratuita.' },
+      { id: 'chk-inscricao', title: 'Confirmar Inscrição no ENEM 2027', detail: 'Marcar que está concluindo o Ensino Médio em 2027 e escolher Fortaleza-CE.' },
+      { id: 'chk-historico', title: 'Solicitar Histórico Escolar Completo', detail: 'Obrigatório comprovar que cursou 1º, 2º e 3º ano integralmente em escola pública.' },
+      { id: 'chk-renda', title: 'Separar Comprovantes de Renda Familiar (se aplicável)', detail: 'Necessário apenas para a cota LB_EP.' },
+      { id: 'chk-sisu', title: 'Realizar Inscrição no SISU 2028', detail: 'Selecionar Medicina — UFC — Campus Fortaleza.' }
+    ];
+
+    const CHANNELS = {
+      assaad: { id: 'assaad', name: 'Pedro Assaad', shortName: 'Assaad', subjects: ['Matemática', 'Física', 'Química', 'Biologia', 'Linguagens'], searchPrefix: 'Pedro Assaad', url: 'https://www.youtube.com/@PedroAssaad' },
+      parabolica: { id: 'parabolica', name: 'Parabólica (Pedro Rennó)', shortName: 'Parabólica', subjects: ['Atualidades', 'Filosofia', 'Sociologia'], searchPrefix: 'Parabólica ENEM', url: 'https://www.youtube.com/@Parab%C3%B3lica' },
+      debora: { id: 'debora', name: 'Débora Aladim', shortName: 'Débora Aladim', subjects: ['História'], searchPrefix: 'Débora Aladim História', url: 'https://www.youtube.com/@deboraaladim' },
+      luma: { id: 'luma', name: 'Luma e Ponto', shortName: 'Luma e Ponto', subjects: ['Redação'], searchPrefix: 'Luma e Ponto Redação ENEM', url: 'https://www.youtube.com/@LumaePonto' },
+      thais: { id: 'thais', name: 'Thais Formagio', shortName: 'Thais Formagio', subjects: ['Geografia'], searchPrefix: 'Thais Formagio Geografia ENEM', url: 'https://www.youtube.com/@ThaisFormagio' }
+    };
+
+    const MONTHS_META = [
+      { id: 0, name: 'Janeiro', weeks: [1, 2, 3, 4] },
+      { id: 1, name: 'Fevereiro', weeks: [5, 6, 7, 8] },
+      { id: 2, name: 'Março', weeks: [9, 10, 11, 12] },
+      { id: 3, name: 'Abril', weeks: [13, 14, 15, 16, 17] },
+      { id: 4, name: 'Maio', weeks: [18, 19, 20, 21] },
+      { id: 5, name: 'Junho', weeks: [22, 23, 24, 25] },
+      { id: 6, name: 'Julho', weeks: [26, 27, 28, 29, 30] },
+      { id: 7, name: 'Agosto', weeks: [31, 32, 33, 34] },
+      { id: 8, name: 'Setembro', weeks: [35, 36, 37, 38] },
+      { id: 9, name: 'Outubro', weeks: [39, 40, 41, 42, 43] },
+      { id: 10, name: 'Novembro', weeks: [44, 45, 46] }
+    ];
+
+    const SYLLABUS = {
+      matematica: ["Operações Básicas", "Frações e Porcentagem", "Função Afim", "Função Quadrática", "Geometria Plana", "Geometria Espacial", "Trigonometria", "Análise Combinatória", "Probabilidade", "Estatística", "Matemática Financeira", "Revisão Geral"],
+      fisica: ["Cinemática", "Leis de Newton", "Trabalho e Energia", "Impulso", "Hidrostática", "Termologia", "Óptica", "Ondulatória", "Eletrostática", "Eletrodinâmica", "Eletromagnetismo", "Revisão Geral"],
+      quimica: ["Atomística", "Tabela Periódica", "Ligações Químicas", "Funções Inorgânicas", "Estequiometria", "Soluções", "Termoquímica", "Cinética", "Equilíbrio", "Eletroquímica", "Orgânica", "Revisão Geral"],
+      biologia: ["Bioquímica", "Citologia", "Respiração Celular", "Fotossíntese", "Divisão Celular", "Histologia", "Fisiologia Humana", "Genética", "Evolução", "Ecologia", "Microbiologia", "Revisão Geral"],
+      linguagens: ["Funções da Linguagem", "Variação Linguística", "Gêneros Textuais", "Interpretação", "Coesão", "Figuras de Linguagem", "Literatura Moderna", "Arte", "Inglês", "Revisão Geral"],
+      historia: ["Antiguidade", "Idade Média", "Brasil Colônia", "Brasil Império", "República Velha", "Era Vargas", "Guerra Fria", "Ditadura Militar", "Nova República", "Revisão Geral"],
+      geografia: ["Cartografia", "Climatologia", "Hidrografia", "Demografia", "Urbanização", "Agrária", "Indústria", "Energia", "Globalização", "Geopolítica", "Revisão Geral"],
+      filosofia: ["Pré-Socráticos", "Sócrates e Platão", "Aristóteles", "Filosofia Medieval", "Racionalismo e Empirismo", "Kant", "Marx e Nietzsche", "Contemporânea", "Revisão Geral"],
+      sociologia: ["Durkheim", "Weber", "Marx", "Cultura", "Trabalho", "Movimentos Sociais", "Desigualdade", "Revisão Geral"],
+      atualidades: ["Inteligência Artificial", "Crise Climática", "Geopolítica Atual", "Saúde Pública", "Segurança Alimentar", "Educação", "Economia", "Revisão Geral"],
+      redacao: ["Estrutura e Competências", "Projeto de Texto", "Introdução", "Desenvolvimento", "Repertório", "Proposta de Intervenção", "Treino Temático", "Revisão Final"]
+    };
+
+    function getTopic(arr, weekIdx) { return arr[weekIdx % arr.length]; }
+
+    function generateFullCurriculum() {
+      const weeks = [];
+      for (let w = 1; w <= 46; w++) {
+        const idx = w - 1;
+        weeks.push({
+          weekNumber: w,
+          monthId: Math.min(10, Math.floor((w - 1) / 4.5)),
+          days: [
+            { dayId: 'seg', dayName: 'Segunda', tasks: [
+              { id: `w${w}-seg-mat`, subject: 'Matemática', topic: getTopic(SYLLABUS.matematica, idx), channelKey: 'assaad', targetQuestions: 25 },
+              { id: `w${w}-seg-fis`, subject: 'Física', topic: getTopic(SYLLABUS.fisica, idx), channelKey: 'assaad', targetQuestions: 15 },
+              { id: `w${w}-seg-lin`, subject: 'Linguagens', topic: getTopic(SYLLABUS.linguagens, idx), channelKey: 'assaad', targetQuestions: 12 }
+            ]},
+            { dayId: 'ter', dayName: 'Terça', tasks: [
+              { id: `w${w}-ter-qui`, subject: 'Química', topic: getTopic(SYLLABUS.quimica, idx), channelKey: 'assaad', targetQuestions: 20 },
+              { id: `w${w}-ter-bio`, subject: 'Biologia', topic: getTopic(SYLLABUS.biologia, idx), channelKey: 'assaad', targetQuestions: 20 },
+              { id: `w${w}-ter-his`, subject: 'História', topic: getTopic(SYLLABUS.historia, idx), channelKey: 'debora', targetQuestions: 12 }
+            ]},
+            { dayId: 'qua', dayName: 'Quarta', tasks: [
+              { id: `w${w}-qua-mat`, subject: 'Matemática', topic: getTopic(SYLLABUS.matematica, idx + 1), channelKey: 'assaad', targetQuestions: 25 },
+              { id: `w${w}-qua-geo`, subject: 'Geografia', topic: getTopic(SYLLABUS.geografia, idx), channelKey: 'thais', targetQuestions: 15 },
+              { id: `w${w}-qua-fil`, subject: 'Filosofia', topic: getTopic(SYLLABUS.filosofia, idx), channelKey: 'parabolica', targetQuestions: 12 }
+            ]},
+            { dayId: 'qui', dayName: 'Quinta', tasks: [
+              { id: `w${w}-qui-fis`, subject: 'Física', topic: getTopic(SYLLABUS.fisica, idx + 1), channelKey: 'assaad', targetQuestions: 15 },
+              { id: `w${w}-qui-qui`, subject: 'Química', topic: getTopic(SYLLABUS.quimica, idx + 1), channelKey: 'assaad', targetQuestions: 15 },
+              { id: `w${w}-qui-soc`, subject: 'Sociologia', topic: getTopic(SYLLABUS.sociologia, idx), channelKey: 'parabolica', targetQuestions: 12 }
+            ]},
+            { dayId: 'sex', dayName: 'Sexta', tasks: [
+              { id: `w${w}-sex-bio`, subject: 'Biologia', topic: getTopic(SYLLABUS.biologia, idx + 1), channelKey: 'assaad', targetQuestions: 20 },
+              { id: `w${w}-sex-red`, subject: 'Redação', topic: getTopic(SYLLABUS.redacao, idx), channelKey: 'luma', targetQuestions: 1 },
+              { id: `w${w}-sex-atu`, subject: 'Atualidades', topic: getTopic(SYLLABUS.atualidades, idx), channelKey: 'parabolica', targetQuestions: 10 }
+            ]},
+            { dayId: 'sab', dayName: 'Sábado', isSimulado: true, tasks: [
+              { id: `w${w}-sab-sim`, subject: 'Simulado', topic: 'Simulado Cronometrado & Correção', channelKey: 'assaad', targetQuestions: 90 }
+            ]},
+            { dayId: 'dom', dayName: 'Domingo', isRest: true, tasks: [] }
+          ]
+        });
+      }
+      return weeks;
+    }
+
+    const CURRICULUM = generateFullCurriculum();
+    const STORAGE_KEY = 'medufc_fortaleza_2027_v2';
+
+    const DEFAULT_STATE = {
+      darkMode: false, activeTab: 'dashboard', selectedModality: 'li_ep',
+      selectedMonth: 0, selectedWeek: 1, dashSelectedDay: 'seg',
+      completedLessons: {}, questionLogs: {}, officialChecklist: {}, activeDates: [],
+      simulados: [], essays: []
+    };
+
+    let appState = loadState();
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? { ...structuredClone(DEFAULT_STATE), ...JSON.parse(raw) } : structuredClone(DEFAULT_STATE);
+      } catch (e) { return structuredClone(DEFAULT_STATE); }
+    }
+
+    function saveState() { localStorage.setItem(STORAGE_KEY, JSON.stringify(appState)); }
+
+    function recordTodayActivity() {
+      const today = new Date().toISOString().split('T')[0];
+      if (!appState.activeDates.includes(today)) { appState.activeDates.push(today); saveState(); }
+    }
+
+    // =========================================================================
+    // 1. FUNÇÕES DE RENDERIZAÇÃO E UI
+    // =========================================================================
+    function showToast(msg, type = 'info') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      const bg = type === 'success' ? 'bg-emerald-600' : (type === 'error' ? 'bg-red-600' : 'bg-slate-800');
+      toast.className = `${bg} text-white px-4 py-3 rounded-xl shadow-lg font-semibold text-sm transition-all duration-300 transform translate-y-2 opacity-0`;
+      toast.innerHTML = `<i class="fa-solid fa-circle-info mr-2"></i>${msg}`;
+      container.appendChild(toast);
+      setTimeout(() => toast.classList.remove('translate-y-2', 'opacity-0'), 10);
+      setTimeout(() => { toast.classList.add('opacity-0'); setTimeout(() => toast.remove(), 300); }, 3000);
+    }
+
+    function closeModal() {
+      document.getElementById('modal-overlay').classList.add('hidden');
+      document.getElementById('modal-overlay').classList.remove('flex');
+    }
+
+    function applyTheme() {
+      const html = document.documentElement;
+      if (appState.darkMode) {
+        html.classList.add('dark');
+        document.getElementById('desktop-theme-icon').className = 'fa-solid fa-sun text-goldMed-400';
+        document.getElementById('mobile-theme-icon').className = 'fa-solid fa-sun text-goldMed-400';
+      } else {
+        html.classList.remove('dark');
+        document.getElementById('desktop-theme-icon').className = 'fa-solid fa-moon';
+        document.getElementById('mobile-theme-icon').className = 'fa-solid fa-moon';
+      }
+    }
+
+    function toggleDarkMode() { appState.darkMode = !appState.darkMode; applyTheme(); saveState(); }
+    function toggleMobileMenu() { document.getElementById('sidebar').classList.toggle('-translate-x-full'); }
+
+    function switchTab(tabName) {
+      appState.activeTab = tabName; saveState();
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      const target = document.getElementById(`tab-${tabName}`);
+      if (target) target.classList.remove('hidden');
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        if (btn.dataset.tab === tabName) btn.className = 'nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all bg-brand-600 text-white shadow-lg shadow-brand-600/25';
+        else btn.className = 'nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-slate-300 hover:bg-brand-800 hover:text-white transition-all';
+      });
+      if (window.innerWidth < 1024) document.getElementById('sidebar').classList.add('-translate-x-full');
+      renderAll();
+    }
+
+    function renderAll() {
+      renderDashboard();
+      renderSchedule();
+      renderSimulados();
+      renderChannels();
+      renderOfficialTab();
+      renderSidebarStats();
+    }
+
+    // --- RENDERIZADORES ESPECÍFICOS ---
+    
+    function renderSidebarStats() {
+      const totalLessons = CURRICULUM.reduce((acc, w) => acc + w.days.reduce((dAcc, d) => dAcc + d.tasks.length, 0), 0);
+      const doneLessons = Object.keys(appState.completedLessons).length;
+      const pct = totalLessons > 0 ? Math.round((doneLessons / totalLessons) * 100) : 0;
+      
+      document.getElementById('sidebar-progress-bar').style.width = `${pct}%`;
+      document.getElementById('sidebar-progress-text').textContent = `${pct}% do edital`;
+      document.getElementById('sidebar-streak-text').textContent = `🔥 ${appState.activeDates.length} dias`;
+      
+      const mod = UFC_MODALITIES[appState.selectedModality];
+      document.getElementById('sidebar-target-label').textContent = mod.sidebarLabel;
+      document.getElementById('sidebar-target-score').textContent = mod.cutoffDisplay;
+    }
+
+    function renderDashboard() {
+      // KPIs
+      const totalLessons = CURRICULUM.reduce((acc, w) => acc + w.days.reduce((dAcc, d) => dAcc + d.tasks.length, 0), 0);
+      const doneLessons = Object.keys(appState.completedLessons).length;
+      document.getElementById('stat-lessons-done').textContent = doneLessons;
+      document.getElementById('stat-lessons-total').textContent = `/ ${totalLessons}`;
+      document.getElementById('stat-lessons-bar').style.width = `${(doneLessons/totalLessons)*100}%`;
+      
+      let totalQ = 0, correctQ = 0;
+      Object.values(appState.questionLogs).forEach(log => { totalQ += log.done; correctQ += log.correct; });
+      document.getElementById('stat-questions-done').textContent = totalQ;
+      document.getElementById('stat-accuracy-text').innerHTML = `Aproveitamento geral: <strong>${totalQ > 0 ? Math.round((correctQ/totalQ)*100) : 0}%</strong>`;
+      document.getElementById('stat-streak').textContent = appState.activeDates.length;
+
+      // Simulados avg
+      if (appState.simulados.length > 0) {
+        const avg = appState.simulados.reduce((acc, s) => acc + s.ufcScore, 0) / appState.simulados.length;
+        document.getElementById('stat-simulado-avg').textContent = avg.toFixed(1);
+        document.getElementById('stat-simulado-count').textContent = `${appState.simulados.length} simulados registrados`;
+      }
+
+      // Modality Pills
+      const pills = document.getElementById('modality-selector-pills');
+      pills.innerHTML = Object.values(UFC_MODALITIES).map(m => `
+        <button onclick="selectModality('${m.id}')" class="px-3 py-1.5 rounded-lg text-xs font-bold transition ${appState.selectedModality === m.id ? 'bg-emerald-500 text-white shadow-lg' : 'bg-brand-800 text-slate-300 hover:bg-brand-700'}">
+          ${m.shortLabel}
+        </button>
+      `).join('');
+
+      // Today Focus
+      const currentWeek = CURRICULUM.find(w => w.weekNumber === appState.selectedWeek) || CURRICULUM[0];
+      document.getElementById('dash-current-week-title').textContent = `Semana ${currentWeek.weekNumber} • ${MONTHS_META[currentWeek.monthId]?.name || 'Mês'}`;
+      
+      const dayPills = document.getElementById('dash-day-pills');
+      dayPills.innerHTML = currentWeek.days.map(d => `
+        <button onclick="appState.dashSelectedDay='${d.dayId}'; renderDashboard();" class="px-3 py-1.5 rounded-lg text-xs font-bold transition ${appState.dashSelectedDay === d.dayId ? 'bg-brand-900 text-white dark:bg-brand-600' : 'bg-slate-100 dark:bg-brand-800 text-slate-600 dark:text-slate-300'}">
+          ${d.dayName}
+        </button>
+      `).join('');
+
+      const activeDay = currentWeek.days.find(d => d.dayId === appState.dashSelectedDay) || currentWeek.days[0];
+      const tasksDiv = document.getElementById('dash-day-tasks');
+      
+      if (activeDay.isRest) {
+        tasksDiv.innerHTML = `<div class="p-6 text-center text-slate-500"><i class="fa-solid fa-mug-hot text-3xl mb-2 text-brand-500"></i><p>Domingo é dia de descanso obrigatório!</p></div>`;
+      } else if (activeDay.tasks.length === 0) {
+        tasksDiv.innerHTML = `<p class="text-sm text-slate-500 p-4">Nenhuma tarefa programada.</p>`;
+      } else {
+        tasksDiv.innerHTML = activeDay.tasks.map(t => {
+          const isDone = !!appState.completedLessons[t.id];
+          return `
+            <div class="flex items-center justify-between p-3 rounded-xl border border-slate-200 dark:border-slate-700 ${isDone ? 'bg-emerald-50 dark:bg-emerald-900/10 border-emerald-200 dark:border-emerald-800' : 'bg-white dark:bg-brand-950'}">
+              <div>
+                <p class="font-bold text-sm ${isDone ? 'line-through text-slate-400' : ''}">${t.subject}</p>
+                <p class="text-xs text-slate-500">${t.topic}</p>
+              </div>
+              <button onclick="toggleLessonComplete('${t.id}')" class="w-8 h-8 rounded-lg flex items-center justify-center ${isDone ? 'bg-emerald-500 text-white' : 'bg-slate-100 dark:bg-brand-800 text-slate-400'}">
+                <i class="fa-solid fa-check"></i>
+              </button>
+            </div>
+          `;
+        }).join('');
+      }
+    }
+
+    function renderSchedule() {
+      const monthSel = document.getElementById('month-selector');
+      monthSel.innerHTML = MONTHS_META.map(m => `
+        <button onclick="appState.selectedMonth=${m.id}; appState.selectedWeek=${m.weeks[0]}; renderSchedule();" class="px-3 py-1.5 rounded-lg text-xs font-bold transition ${appState.selectedMonth === m.id ? 'bg-brand-900 text-white dark:bg-brand-600' : 'bg-slate-100 dark:bg-brand-800 text-slate-600 dark:text-slate-300'}">
+          ${m.name}
+        </button>
+      `).join('');
+
+      const currentMonth = MONTHS_META[appState.selectedMonth];
+      const weekSel = document.getElementById('week-selector');
+      weekSel.innerHTML = currentMonth.weeks.map(w => `
+        <button onclick="appState.selectedWeek=${w}; renderSchedule();" class="px-3 py-2 rounded-xl text-xs font-bold border ${appState.selectedWeek === w ? 'bg-brand-600 text-white border-brand-600' : 'bg-slate-50 dark:bg-brand-950 border-slate-200 dark:border-slate-700'}">
+          Semana ${w}
+        </button>
+      `).join('');
+
+      const week = CURRICULUM.find(w => w.weekNumber === appState.selectedWeek) || CURRICULUM[0];
+      document.getElementById('week-header-banner').innerHTML = `
+        <div>
+          <h3 class="font-extrabold text-lg">Semana ${week.weekNumber} • ${currentMonth.name}</h3>
+          <p class="text-xs text-slate-300">Sua rotina de estudos para esta semana</p>
+        </div>
+      `;
+
+      const grid = document.getElementById('week-days-grid');
+      grid.innerHTML = week.days.map(d => {
+        if (d.isRest) return `
+          <div class="bg-slate-100 dark:bg-brand-900/50 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center text-center">
+            <i class="fa-solid fa-bed text-2xl text-slate-400 mb-2"></i>
+            <h4 class="font-bold text-slate-500">Domingo</h4>
+            <p class="text-xs text-slate-400 mt-1">Descanso Obrigatório</p>
+          </div>
+        `;
+        
+        return `
+          <div class="bg-white dark:bg-brand-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+            <h4 class="font-bold border-b border-slate-100 dark:border-slate-800 pb-2 mb-3">${d.dayName} ${d.isSimulado ? '<span class="text-[10px] bg-red-100 text-red-600 px-2 py-0.5 rounded ml-2">SIMULADO</span>' : ''}</h4>
+            <div class="space-y-2">
+              ${d.tasks.map(t => {
+                const isDone = !!appState.completedLessons[t.id];
+                return `
+                  <div class="flex items-start gap-2 ${isDone ? 'opacity-50' : ''}">
+                    <button onclick="toggleLessonComplete('${t.id}')" class="mt-0.5 w-5 h-5 rounded border border-slate-300 dark:border-slate-600 flex items-center justify-center shrink-0 ${isDone ? 'bg-emerald-500 border-emerald-500 text-white' : ''}">
+                      <i class="fa-solid fa-check text-[10px]"></i>
+                    </button>
+                    <div class="flex-1">
+                      <p class="text-sm font-semibold leading-tight ${isDone ? 'line-through text-slate-400' : ''}">${t.subject}</p>
+                      <p class="text-xs text-slate-500">${t.topic}</p>
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderSimulados() {
+      const list = document.getElementById('simulados-list');
+      if (appState.simulados.length === 0) {
+        list.innerHTML = `<p class="text-sm text-slate-500 text-center py-4">Nenhum simulado registrado ainda.</p>`;
+        return;
+      }
+      list.innerHTML = appState.simulados.map(s => `
+        <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-brand-950 flex justify-between items-center">
+          <div>
+            <h4 class="font-bold text-sm">${s.name}</h4>
+            <p class="text-xs text-slate-500">${s.date} • ${s.type}</p>
+            <p class="text-xs text-slate-400 mt-1">Erros: ${s.notes || 'Nenhum anotado'}</p>
+          </div>
+          <div class="text-right">
+            <span class="block text-xl font-bold text-amber-500">${s.ufcScore.toFixed(2)}</span>
+            <span class="text-[10px] text-slate-500 uppercase font-bold">Média UFC</span>
+            <button onclick="deleteSimulado('${s.id}')" class="block text-xs text-red-500 hover:text-red-700 mt-2 ml-auto"><i class="fa-solid fa-trash"></i></button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderChannels() {
+      const grid = document.getElementById('channels-cards-grid');
+      grid.innerHTML = Object.values(CHANNELS).map(c => `
+        <div class="bg-white dark:bg-brand-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+          <div>
+            <h3 class="font-bold text-lg mb-1">${c.name}</h3>
+            <p class="text-xs text-slate-500 mb-2">${c.subjects.join(' • ')}</p>
+          </div>
+          <a href="${c.url}" target="_blank" class="mt-4 w-full py-2 bg-red-600 hover:bg-red-700 text-white text-center rounded-lg text-xs font-bold transition">
+            <i class="fa-brands fa-youtube mr-1"></i> Acessar Canal
+          </a>
+        </div>
+      `).join('');
+    }
+
+    function renderOfficialTab() {
+      const items = document.getElementById('official-checklist-items');
+      let count = 0;
+      items.innerHTML = OFFICIAL_CHECKLIST_DATA.map(item => {
+        const isDone = !!appState.officialChecklist[item.id];
+        if (isDone) count++;
+        return `
+          <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:bg-slate-50 dark:hover:bg-brand-800 transition">
+            <input type="checkbox" onchange="toggleOfficialChecklist('${item.id}')" ${isDone ? 'checked' : ''} class="mt-0.5 w-5 h-5 rounded text-emerald-500 focus:ring-emerald-500" />
+            <div>
+              <p class="text-sm font-bold ${isDone ? 'line-through text-slate-400' : ''}">${item.title}</p>
+              <p class="text-xs text-slate-500">${item.detail}</p>
+            </div>
+          </label>
+        `;
+      }).join('');
+      document.getElementById('official-checklist-counter').textContent = `${count}/${OFFICIAL_CHECKLIST_DATA.length} prontos`;
+    }
+
+    // =========================================================================
+    // 2. AÇÕES E LÓGICA
+    // =========================================================================
+    function selectModality(id) { appState.selectedModality = id; saveState(); renderAll(); }
+    
+    function toggleOfficialChecklist(id) {
+      if (appState.officialChecklist[id]) delete appState.officialChecklist[id];
+      else appState.officialChecklist[id] = true;
+      saveState(); renderOfficialTab();
+    }
+
+    function toggleLessonComplete(id) {
+      if (appState.completedLessons[id]) delete appState.completedLessons[id];
+      else { appState.completedLessons[id] = true; recordTodayActivity(); }
+      saveState(); renderAll();
+    }
+
+    function navigateWeek(dir) {
+      const newWeek = appState.selectedWeek + dir;
+      if (newWeek >= 1 && newWeek <= 46) {
+        appState.selectedWeek = newWeek;
+        const m = MONTHS_META.find(m => m.weeks.includes(newWeek));
+        if (m) appState.selectedMonth = m.id;
+        renderSchedule();
+      }
+    }
+
+    // =========================================================================
+    // 3. LÓGICA DE SIMULADOS (CÁLCULO TRI E MÉDIA UFC)
+    // =========================================================================
+    function estimateAreaTRI(correctCount, area) {
+      const c = Math.max(0, Math.min(45, Number(correctCount) || 0));
+      const curves = { lc: { base: 360, slope: 8.6 }, ch: { base: 370, slope: 9.2 }, cn: { base: 380, slope: 10.3 }, mt: { base: 390, slope: 12.4 } };
+      const cfg = curves[area];
+      return Number((cfg.base + c * cfg.slope).toFixed(1));
+    }
+
+    function saveSimulado(event) {
+      event.preventDefault();
+      const name = document.getElementById('sim-name').value;
+      const date = document.getElementById('sim-date').value;
+      const type = document.getElementById('sim-type').value;
+      const lc = Number(document.getElementById('sim-lc').value);
+      const ch = Number(document.getElementById('sim-ch').value);
+      const cn = Number(document.getElementById('sim-cn').value);
+      const mt = Number(document.getElementById('sim-mt').value);
+      const red = Number(document.getElementById('sim-red').value);
+      const notes = document.getElementById('sim-notes').value;
+
+      const triLC = estimateAreaTRI(lc, 'lc'), triCH = estimateAreaTRI(ch, 'ch'), triCN = estimateAreaTRI(cn, 'cn'), triMT = estimateAreaTRI(mt, 'mt');
+      const ufcScore = (triLC + triCH + triCN + triMT + red) / 5; // REGRA OFICIAL UFC: MÉDIA SIMPLES
+
+      appState.simulados.unshift({ id: 'sim-' + Date.now(), name, date, type, lc, ch, cn, mt, red, ufcScore, notes });
+      recordTodayActivity();
+      saveState();
+      event.target.reset();
+      renderAll();
+      showToast(`Simulado salvo! Média UFC: ${ufcScore.toFixed(2)} pts`, 'success');
+    }
+
+    function deleteSimulado(id) {
+      appState.simulados = appState.simulados.filter(s => s.id !== id);
+      saveState(); renderAll();
+    }
+
+    // =========================================================================
+    // 4. BACKUP
+    // =========================================================================
+    function exportBackup() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(appState, null, 2));
+      const a = document.createElement('a');
+      a.href = dataStr;
+      a.download = `MedUFC_Backup_${new Date().toISOString().split('T')[0]}.json`;
+      a.click();
+      showToast('Backup exportado!', 'success');
+    }
+
+    function importBackup(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const imported = JSON.parse(e.target.result);
+          appState = { ...structuredClone(DEFAULT_STATE), ...imported };
+          saveState();
+          applyTheme();
+          renderAll();
+          showToast('Backup restaurado com sucesso!', 'success');
+        } catch (err) {
+          showToast('Erro ao ler o arquivo de backup.', 'error');
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    // =========================================================================
+    // 5. INICIALIZAÇÃO
+    // =========================================================================
+    document.addEventListener('DOMContentLoaded', () => {
+      applyTheme();
+      switchTab(appState.activeTab || 'dashboard');
+      document.getElementById('sim-date').valueAsDate = new Date();
+      
+      // Contagem regressiva
+      const dataProva = new Date('2027-11-07'); 
+      const diffDays = Math.ceil(Math.abs(dataProva - new Date()) / (1000 * 60 * 60 * 24));
+      document.getElementById('countdown-days').textContent = diffDays;
+    });
+
+  </script>
+</body>
+</html>
