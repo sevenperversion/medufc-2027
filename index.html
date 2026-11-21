@@ -3,24 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MedUFC</title>
+  <title>MedUFC — Medicina UFC Fortaleza (ENEM 2027)</title>
 
   <!-- Web App / Tela Inicial iOS & Android -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="MedUFC" />
   <meta name="application-name" content="MedUFC" />
   <meta name="theme-color" content="#353A4C" />
 
-  <!-- Ícones da Tela Inicial (SVG fallback imediato + PNG 180x180 gerado via Canvas) -->
-  <link id="apple-touch-icon-link" rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234FACE5'/%3E%3Cstop offset='52%25' stop-color='%23367ADF'/%3E%3Cstop offset='100%25' stop-color='%23394988'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='180' height='180' fill='url(%23bg)'/%3E%3Cg fill='none' stroke='%23E5F2FC' stroke-width='11' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='90' y1='26' x2='90' y2='154'/%3E%3Cpath d='M62 52 C62 36, 118 36, 118 58 C118 80, 62 74, 62 96 C62 118, 118 112, 118 132 C118 144, 96 146, 84 140'/%3E%3C/g%3E%3Ccircle cx='62' cy='50' r='4.5' fill='%23367ADF'/%3E%3C/svg%3E" />
-  <link id="favicon-link" rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234FACE5'/%3E%3Cstop offset='52%25' stop-color='%23367ADF'/%3E%3Cstop offset='100%25' stop-color='%23394988'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='180' height='180' rx='40' fill='url(%23bg)'/%3E%3Cg fill='none' stroke='%23E5F2FC' stroke-width='11' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='90' y1='26' x2='90' y2='154'/%3E%3Cpath d='M62 52 C62 36, 118 36, 118 58 C118 80, 62 74, 62 96 C62 118, 118 112, 118 132 C118 144, 96 146, 84 140'/%3E%3C/g%3E%3Ccircle cx='62' cy='50' r='4.5' fill='%23367ADF'/%3E%3C/svg%3E" />
+  <!-- Ícones unificados (SVG fallback imediato + PNG 180x180 e 512x512 gerados via Canvas com a mesma identidade) -->
+  <link id="apple-touch-icon-link" rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234BA3E3'/%3E%3Cstop offset='52%25' stop-color='%232B6CB0'/%3E%3Cstop offset='100%25' stop-color='%23394988'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='180' height='180' fill='url(%23bg)'/%3E%3Cg fill='none' stroke='%23EBF5FF' stroke-width='11.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='90' y1='20' x2='90' y2='160'/%3E%3Cpath d='M118 48 C118 32, 62 32, 62 56 C62 79, 118 76, 118 100 C118 124, 62 120, 62 138 C62 150, 98 150, 112 142'/%3E%3C/g%3E%3Ccircle cx='118' cy='48' r='8' fill='%23EBF5FF'/%3E%3Ccircle cx='120' cy='47' r='2.8' fill='%232B6CB0'/%3E%3C/svg%3E" />
+  <link id="favicon-link" rel="icon" type="image/png" sizes="180x180" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234BA3E3'/%3E%3Cstop offset='52%25' stop-color='%232B6CB0'/%3E%3Cstop offset='100%25' stop-color='%23394988'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='180' height='180' rx='40' fill='url(%23bg)'/%3E%3Cg fill='none' stroke='%23EBF5FF' stroke-width='11.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='90' y1='20' x2='90' y2='160'/%3E%3Cpath d='M118 48 C118 32, 62 32, 62 56 C62 79, 118 76, 118 100 C118 124, 62 120, 62 138 C62 150, 98 150, 112 142'/%3E%3C/g%3E%3Ccircle cx='118' cy='48' r='8' fill='%23EBF5FF'/%3E%3Ccircle cx='120' cy='47' r='2.8' fill='%232B6CB0'/%3E%3C/svg%3E" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -33,49 +35,58 @@
           colors: {
             brand: {
               950: '#1B1F2B',
-              900: '#353A4C', /* Charcoal Blue */
-              800: '#394988', /* French Blue */
-              600: '#367ADF', /* Azure Blue */
-              500: '#4FACE5', /* Fresh Sky */
-              200: '#AED5F5', /* Icy Blue */
+              900: '#353A4C',
+              800: '#394988',
+              600: '#2B6CB0',
+              500: '#4BA3E3',
+              200: '#EBF5FF',
             }
           }
         }
       }
-    }
+    };
   </script>
+
   <style>
     ::-webkit-scrollbar { width: 7px; height: 7px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: rgba(57, 73, 136, 0.45); border-radius: 9999px; }
-    ::-webkit-scrollbar-thumb:hover { background: rgba(54, 122, 223, 0.75); }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(43, 108, 176, 0.8); }
+
     .app-icon-3d {
-      background: linear-gradient(145deg, #4FACE5 0%, #367ADF 52%, #394988 100%);
-      box-shadow: inset 0 2px 3px rgba(174, 213, 245, 0.75), inset 0 -3px 6px rgba(53, 58, 44, 0.45), 0 8px 18px rgba(54, 122, 223, 0.35);
+      background: linear-gradient(145deg, #4BA3E3 0%, #2B6CB0 54%, #394988 100%);
+      box-shadow:
+        inset 0 2px 4px rgba(235, 245, 255, 0.72),
+        inset 0 -3px 6px rgba(53, 58, 76, 0.48),
+        0 8px 18px rgba(43, 108, 176, 0.35);
     }
   </style>
 </head>
-<body class="bg-[#F2F7FC] text-[#353A4C] dark:bg-brand-950 dark:text-[#AED5F5] transition-colors duration-200 min-h-screen flex flex-col lg:flex-row">
+
+<body class="bg-[#F2F7FC] text-[#353A4C] dark:bg-brand-950 dark:text-[#EBF5FF] transition-colors duration-200 min-h-screen flex flex-col lg:flex-row">
 
   <!-- Toast Notification Container -->
   <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
+  <!-- Mobile Overlay -->
+  <div id="mobile-backdrop" onclick="closeMobileMenu()" class="fixed inset-0 z-30 bg-black/50 hidden lg:hidden"></div>
+
   <!-- Mobile Header -->
   <header class="lg:hidden sticky top-0 z-40 bg-brand-900 text-white px-4 py-3 flex items-center justify-between shadow-md border-b border-brand-800">
     <div class="flex items-center gap-2.5">
-      <div class="w-9 h-9 rounded-xl app-icon-3d flex items-center justify-center text-[#AED5F5]">
-        <i class="fa-solid fa-staff-snake text-base drop-shadow"></i>
+      <div class="w-9 h-9 rounded-xl app-icon-3d flex items-center justify-center overflow-hidden shrink-0">
+        <img class="medufc-brand-icon-img w-full h-full object-cover" alt="MedUFC" />
       </div>
       <div>
         <h1 class="font-extrabold text-base tracking-tight leading-none text-white">MedUFC <span class="text-brand-200">2027</span></h1>
-        <p class="text-[11px] text-brand-200/80">Fortaleza • Saída 18h30 • YouTube</p>
+        <p class="text-[11px] text-brand-200/80">Fortaleza • Escola 12h–18h30 • YouTube</p>
       </div>
     </div>
     <div class="flex items-center gap-2">
-      <button onclick="toggleDarkMode()" class="p-2.5 rounded-xl bg-brand-800 hover:bg-brand-600 text-brand-200 transition" title="Alternar Tema">
+      <button type="button" onclick="toggleDarkMode()" class="p-2.5 rounded-xl bg-brand-800 hover:bg-brand-600 text-brand-200 transition" title="Alternar Tema">
         <i id="mobile-theme-icon" class="fa-solid fa-moon"></i>
       </button>
-      <button onclick="toggleMobileMenu()" class="p-2.5 rounded-xl bg-brand-800 hover:bg-brand-600 text-white transition" title="Abrir Menu">
+      <button type="button" onclick="toggleMobileMenu()" class="p-2.5 rounded-xl bg-brand-800 hover:bg-brand-600 text-white transition" title="Abrir Menu">
         <i class="fa-solid fa-bars"></i>
       </button>
     </div>
@@ -84,11 +95,11 @@
   <!-- Sidebar -->
   <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-72 bg-brand-900 text-white flex flex-col justify-between transform -translate-x-full lg:translate-x-0 lg:static transition-transform duration-300 ease-in-out border-r border-brand-800 shrink-0">
     <div>
-      <!-- Brand Header -->
+      <!-- Brand Header (Desktop) -->
       <div class="p-6 border-b border-brand-800/80 hidden lg:flex items-center justify-between">
         <div class="flex items-center gap-3">
-          <div class="w-11 h-11 rounded-2xl app-icon-3d flex items-center justify-center text-[#AED5F5]">
-            <i class="fa-solid fa-staff-snake text-xl drop-shadow"></i>
+          <div class="w-11 h-11 rounded-2xl app-icon-3d flex items-center justify-center overflow-hidden shrink-0">
+            <img class="medufc-brand-icon-img w-full h-full object-cover" alt="MedUFC" />
           </div>
           <div>
             <div class="flex items-center gap-1.5">
@@ -98,7 +109,7 @@
             <p class="text-xs text-brand-200/75 font-medium">Campus Fortaleza • CE</p>
           </div>
         </div>
-        <button onclick="toggleDarkMode()" class="p-2 rounded-xl bg-brand-800 hover:bg-brand-600 text-brand-200 transition" title="Alternar Tema Claro/Escuro">
+        <button type="button" onclick="toggleDarkMode()" class="p-2 rounded-xl bg-brand-800 hover:bg-brand-600 text-brand-200 transition" title="Alternar Tema Claro/Escuro">
           <i id="desktop-theme-icon" class="fa-solid fa-moon"></i>
         </button>
       </div>
@@ -110,32 +121,32 @@
           <span id="sidebar-target-score" class="font-mono font-bold text-white">802,42</span>
         </div>
         <div class="w-full bg-brand-950 rounded-full h-2 overflow-hidden">
-          <div id="sidebar-progress-bar" class="bg-gradient-to-r from-[#4FACE5] to-[#AED5F5] h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+          <div id="sidebar-progress-bar" class="bg-gradient-to-r from-[#4BA3E3] to-[#EBF5FF] h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
         </div>
         <div class="flex justify-between text-[11px] text-brand-200/75 mt-1.5">
           <span id="sidebar-progress-text">0% do edital</span>
-          <span id="sidebar-streak-text">🔥 0 dias</span>
+          <span id="sidebar-streak-text">0 dias ativos</span>
         </div>
       </div>
 
       <!-- Navigation -->
-      <nav class="p-4 space-y-1.5">
-        <button onclick="switchTab('dashboard')" data-tab="dashboard" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all bg-brand-600 text-white shadow-lg shadow-brand-600/30">
+      <nav class="p-4 space-y-1.5" aria-label="Navegação principal">
+        <button type="button" onclick="switchTab('dashboard')" data-tab="dashboard" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all bg-brand-600 text-white shadow-lg shadow-brand-600/30">
           <i class="fa-solid fa-chart-line w-5 text-center"></i>
-          <span>Visão Geral & UFC</span>
+          <span>Visão Geral &amp; UFC</span>
         </button>
-        <button onclick="switchTab('schedule')" data-tab="schedule" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-brand-200 hover:bg-brand-800 hover:text-white transition-all">
+        <button type="button" onclick="switchTab('schedule')" data-tab="schedule" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-brand-200 hover:bg-brand-800 hover:text-white transition-all">
           <i class="fa-solid fa-calendar-check w-5 text-center"></i>
           <span>Cronograma Jan–Nov</span>
           <span class="ml-auto text-[10px] font-mono px-2 py-0.5 rounded-full bg-brand-500/25 text-brand-200">46 Sem</span>
         </button>
-        <button onclick="switchTab('simulados')" data-tab="simulados" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-brand-200 hover:bg-brand-800 hover:text-white transition-all">
+        <button type="button" onclick="switchTab('simulados')" data-tab="simulados" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-brand-200 hover:bg-brand-800 hover:text-white transition-all">
           <i class="fa-solid fa-file-pen w-5 text-center"></i>
-          <span>Simulados & Redações</span>
+          <span>Simulados &amp; Erros</span>
         </button>
-        <button onclick="switchTab('channels')" data-tab="channels" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-brand-200 hover:bg-brand-800 hover:text-white transition-all">
+        <button type="button" onclick="switchTab('channels')" data-tab="channels" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-brand-200 hover:bg-brand-800 hover:text-white transition-all">
           <i class="fa-brands fa-youtube w-5 text-center text-brand-500"></i>
-          <span>Canais & Guia ENEM 2027</span>
+          <span>Canais &amp; Guia ENEM 2027</span>
         </button>
       </nav>
     </div>
@@ -143,11 +154,11 @@
     <!-- Footer Controls -->
     <div class="p-4 border-t border-brand-800 space-y-3">
       <div class="p-3 rounded-xl bg-brand-950/70 border border-brand-800 text-xs text-brand-200/90 leading-relaxed">
-        <p class="font-semibold text-brand-500 mb-1"><i class="fa-solid fa-clock mr-1"></i> Rotina Saída 18h30</p>
-        Manhã (08h–11h45) • Escola à tarde • Noite leve (19h45–20h30) • Domingo livre.
+        <p class="font-semibold text-brand-500 mb-1"><i class="fa-solid fa-clock mr-1"></i> Rotina (Escola 12h–18h30)</p>
+        Manhã (08h–11h45) • Escola (12h–18h30) • Noite leve (19h45–20h30) • Domingo livre.
       </div>
       <div class="grid grid-cols-2 gap-2">
-        <button onclick="exportBackup()" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-brand-800 hover:bg-brand-600 text-xs font-semibold text-brand-200 hover:text-white transition">
+        <button type="button" onclick="exportBackup()" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-brand-800 hover:bg-brand-600 text-xs font-semibold text-brand-200 hover:text-white transition">
           <i class="fa-solid fa-download"></i> Backup
         </button>
         <label class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-brand-800 hover:bg-brand-600 text-xs font-semibold text-brand-200 hover:text-white transition cursor-pointer">
@@ -155,7 +166,7 @@
           <input type="file" id="import-file" accept=".json" class="hidden" onchange="importBackup(event)" />
         </label>
       </div>
-      <button onclick="resetAllProgress()" class="w-full py-1.5 rounded-lg text-[11px] font-semibold text-brand-200/60 hover:text-red-300 transition">
+      <button type="button" onclick="resetAllProgress()" class="w-full py-1.5 rounded-lg text-[11px] font-semibold text-brand-200/60 hover:text-red-300 transition">
         <i class="fa-solid fa-rotate-left mr-1"></i> Zerar progresso salvo
       </button>
     </div>
@@ -168,37 +179,37 @@
       <!-- ==================== TAB 1: DASHBOARD ==================== -->
       <section id="tab-dashboard" class="tab-content space-y-6">
         <!-- Hero Banner -->
-        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#353A4C] via-[#394988] to-[#367ADF] text-white p-6 sm:p-8 shadow-xl border border-[#4FACE5]/30">
+        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#353A4C] via-[#394988] to-[#2B6CB0] text-white p-6 sm:p-8 shadow-xl border border-[#4BA3E3]/30">
           <div class="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div class="space-y-2.5 max-w-2xl">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#AED5F5]/15 border border-[#AED5F5]/30 text-[#AED5F5] text-xs font-bold uppercase tracking-wider">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EBF5FF]/15 border border-[#EBF5FF]/30 text-[#EBF5FF] text-xs font-bold uppercase tracking-wider">
                 <i class="fa-solid fa-graduation-cap"></i> MEDICINA UFC — CAMPUS FORTALEZA • ENEM 2027
               </div>
               <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
                 Sua aprovação em Medicina na UFC Fortaleza começa hoje.
               </h2>
-              <p class="text-[#AED5F5]/90 text-sm sm:text-base leading-relaxed">
-                Planejamento 100% gratuito pelo YouTube adaptado à sua rotina de escola pública (saída às 18h30). Na UFC Fortaleza, todas as 5 provas têm <strong class="text-white">Peso 1,00 (Média Aritmética Simples ÷ 5)</strong> — Matemática e Redação valem o mesmo que Natureza.
+              <p class="text-[#EBF5FF]/90 text-sm sm:text-base leading-relaxed">
+                Planejamento 100% gratuito pelo YouTube adaptado à sua rotina de escola pública (12h–18h30). Na UFC Fortaleza, todas as 5 provas têm <strong class="text-white">Peso 1,00 (Média Aritmética Simples ÷ 5)</strong> — Matemática e Redação valem o mesmo que Natureza.
               </p>
 
               <div class="pt-1">
-                <label class="block text-[11px] font-bold uppercase tracking-wider text-[#AED5F5] mb-1.5">
+                <span class="block text-[11px] font-bold uppercase tracking-wider text-[#EBF5FF] mb-1.5">
                   <i class="fa-solid fa-user-check mr-1"></i> Sua Modalidade de Concorrência (Referência):
-                </label>
+                </span>
                 <div id="modality-selector-pills" class="flex flex-wrap gap-2"></div>
               </div>
             </div>
 
             <div class="flex flex-wrap sm:flex-nowrap gap-3 shrink-0">
-              <div class="bg-[#353A4C]/80 border border-[#AED5F5]/25 rounded-2xl p-4 text-center min-w-[130px] backdrop-blur-sm">
-                <span class="text-[11px] uppercase tracking-wider text-[#AED5F5]/75 font-bold block">Jan/2027</span>
-                <span id="countdown-days" class="text-2xl sm:text-3xl font-mono font-extrabold text-[#AED5F5] mt-1 block">--</span>
+              <div class="bg-[#353A4C]/80 border border-[#EBF5FF]/25 rounded-2xl p-4 text-center min-w-[135px] backdrop-blur-sm">
+                <span class="text-[11px] uppercase tracking-wider text-[#EBF5FF]/75 font-bold block">Jan/2027</span>
+                <span id="countdown-days" class="text-2xl sm:text-3xl font-mono font-extrabold text-[#EBF5FF] mt-1 block">--</span>
                 <span class="text-xs text-white/80">dias p/ início</span>
               </div>
-              <div class="bg-[#353A4C]/80 border border-[#4FACE5]/50 rounded-2xl p-4 text-center min-w-[170px] backdrop-blur-sm">
-                <span id="banner-target-modality" class="text-[11px] uppercase tracking-wider text-[#4FACE5] font-bold block">LI_EP • Escola Pública</span>
+              <div class="bg-[#353A4C]/80 border border-[#4BA3E3]/50 rounded-2xl p-4 text-center min-w-[175px] backdrop-blur-sm">
+                <span id="banner-target-modality" class="text-[11px] uppercase tracking-wider text-[#4BA3E3] font-bold block">LI_EP • Escola Pública</span>
                 <span id="banner-target-score" class="text-2xl sm:text-3xl font-mono font-extrabold text-white mt-1 block">802,42</span>
-                <span class="text-xs text-[#AED5F5]/80">média simples UFC</span>
+                <span class="text-xs text-[#EBF5FF]/80">média simples UFC</span>
               </div>
             </div>
           </div>
@@ -206,7 +217,7 @@
 
         <!-- 4 KPI Cards -->
         <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
-          <div class="bg-white dark:bg-brand-900 rounded-2xl p-5 border border-[#AED5F5]/60 dark:border-brand-800 shadow-sm">
+          <div class="bg-white dark:bg-brand-900 rounded-2xl p-5 border border-[#4BA3E3]/30 dark:border-brand-800 shadow-sm">
             <div class="flex items-center justify-between">
               <span class="text-xs font-bold uppercase tracking-wider text-brand-800 dark:text-brand-200/80">Aulas Concluídas</span>
               <div class="w-9 h-9 rounded-xl bg-brand-600/15 text-brand-600 dark:text-brand-500 flex items-center justify-center">
@@ -217,12 +228,12 @@
               <span id="stat-lessons-done" class="text-3xl font-extrabold font-mono text-brand-900 dark:text-white">0</span>
               <span id="stat-lessons-total" class="text-sm text-brand-800/70 dark:text-brand-200/60 font-mono">/ 0</span>
             </div>
-            <div class="mt-3 w-full bg-[#AED5F5]/40 dark:bg-brand-950 rounded-full h-2">
-              <div id="stat-lessons-bar" class="bg-gradient-to-r from-[#367ADF] to-[#4FACE5] h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+            <div class="mt-3 w-full bg-[#EBF5FF] dark:bg-brand-950 rounded-full h-2">
+              <div id="stat-lessons-bar" class="bg-gradient-to-r from-[#2B6CB0] to-[#4BA3E3] h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
             </div>
           </div>
 
-          <div class="bg-white dark:bg-brand-900 rounded-2xl p-5 border border-[#AED5F5]/60 dark:border-brand-800 shadow-sm">
+          <div class="bg-white dark:bg-brand-900 rounded-2xl p-5 border border-[#4BA3E3]/30 dark:border-brand-800 shadow-sm">
             <div class="flex items-center justify-between">
               <span class="text-xs font-bold uppercase tracking-wider text-brand-800 dark:text-brand-200/80">Questões das Aulas</span>
               <div class="w-9 h-9 rounded-xl bg-brand-500/15 text-brand-600 dark:text-brand-500 flex items-center justify-center">
@@ -234,11 +245,11 @@
               <span id="stat-questions-target" class="text-xs text-brand-800/70 dark:text-brand-200/60">meta: 12.000+</span>
             </div>
             <p id="stat-accuracy-text" class="mt-2 text-xs font-medium text-brand-800/80 dark:text-brand-200/75">
-              Metas das aulas concluídas
+              Redações concluídas: <strong class="text-brand-900 dark:text-white">0</strong>
             </p>
           </div>
 
-          <div class="bg-white dark:bg-brand-900 rounded-2xl p-5 border border-[#AED5F5]/60 dark:border-brand-800 shadow-sm">
+          <div class="bg-white dark:bg-brand-900 rounded-2xl p-5 border border-[#4BA3E3]/30 dark:border-brand-800 shadow-sm">
             <div class="flex items-center justify-between">
               <span class="text-xs font-bold uppercase tracking-wider text-brand-800 dark:text-brand-200/80">Média Simples UFC</span>
               <div class="w-9 h-9 rounded-xl bg-brand-800/15 text-brand-800 dark:text-brand-200 flex items-center justify-center">
@@ -254,11 +265,11 @@
             </p>
           </div>
 
-          <div class="bg-white dark:bg-brand-900 rounded-2xl p-5 border border-[#AED5F5]/60 dark:border-brand-800 shadow-sm">
+          <div class="bg-white dark:bg-brand-900 rounded-2xl p-5 border border-[#4BA3E3]/30 dark:border-brand-800 shadow-sm">
             <div class="flex items-center justify-between">
-              <span class="text-xs font-bold uppercase tracking-wider text-brand-800 dark:text-brand-200/80">Ofensiva / Streak</span>
+              <span class="text-xs font-bold uppercase tracking-wider text-brand-800 dark:text-brand-200/80">Dias Ativos</span>
               <div class="w-9 h-9 rounded-xl bg-brand-500/15 text-brand-600 dark:text-brand-500 flex items-center justify-center">
-                <i class="fa-solid fa-fire"></i>
+                <i class="fa-solid fa-calendar-day"></i>
               </div>
             </div>
             <div class="mt-3 flex items-baseline gap-2">
@@ -271,16 +282,49 @@
           </div>
         </div>
 
+        <!-- Fluxo Prático de Execução (Foco -> Base -> Questões -> Revisão de Erro) -->
+        <div class="bg-white dark:bg-brand-900 rounded-2xl border border-[#4BA3E3]/30 dark:border-brand-800 p-6 shadow-sm space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-500">Ciclo de Estudo Ativo</span>
+              <h3 class="text-base font-extrabold text-brand-900 dark:text-white">Ordem do Bloco: Foco → Base → Questões → Revisão de Erro</h3>
+            </div>
+            <span class="text-xs text-brand-800/75 dark:text-brand-200/75">Concluir um tema exige prática em questões e revisão do que errou.</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+            <div class="p-3.5 rounded-xl bg-[#F2F7FC] dark:bg-brand-950 border border-[#4BA3E3]/30 dark:border-brand-800">
+              <span class="font-mono font-bold text-brand-600 dark:text-brand-500 block mb-1">1. FOCO</span>
+              <p class="text-brand-900 dark:text-white font-semibold">Defina o assunto e a meta</p>
+              <p class="text-brand-800/75 dark:text-brand-200/75 mt-0.5">Evite abrir vários assuntos soltos no mesmo bloco.</p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-[#F2F7FC] dark:bg-brand-950 border border-[#4BA3E3]/30 dark:border-brand-800">
+              <span class="font-mono font-bold text-brand-600 dark:text-brand-500 block mb-1">2. BASE</span>
+              <p class="text-brand-900 dark:text-white font-semibold">Aula objetiva no YouTube</p>
+              <p class="text-brand-800/75 dark:text-brand-200/75 mt-0.5">Anote apenas conceitos-chave e fórmulas essenciais.</p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-[#F2F7FC] dark:bg-brand-950 border border-[#4BA3E3]/30 dark:border-brand-800">
+              <span class="font-mono font-bold text-brand-600 dark:text-brand-500 block mb-1">3. QUESTÕES</span>
+              <p class="text-brand-900 dark:text-white font-semibold">Prática ativa no tema</p>
+              <p class="text-brand-800/75 dark:text-brand-200/75 mt-0.5">Resolva questões antes de considerar o assunto encerrado.</p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-[#F2F7FC] dark:bg-brand-950 border border-[#4BA3E3]/30 dark:border-brand-800">
+              <span class="font-mono font-bold text-brand-600 dark:text-brand-500 block mb-1">4. REVISÃO DE ERRO</span>
+              <p class="text-brand-900 dark:text-white font-semibold">Registre e corrija falhas</p>
+              <p class="text-brand-800/75 dark:text-brand-200/75 mt-0.5">Leve os erros para a noite leve (19h45–20h30) ou sábado.</p>
+            </div>
+          </div>
+        </div>
+
         <!-- Today's Schedule + UFC SISU Summary -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div class="lg:col-span-2 bg-white dark:bg-brand-900 rounded-2xl border border-[#AED5F5]/60 dark:border-brand-800 p-6 shadow-sm flex flex-col justify-between">
+          <div class="lg:col-span-2 bg-white dark:bg-brand-900 rounded-2xl border border-[#4BA3E3]/30 dark:border-brand-800 p-6 shadow-sm flex flex-col justify-between">
             <div>
-              <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-[#AED5F5]/40 dark:border-brand-800">
+              <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-[#EBF5FF] dark:border-brand-800">
                 <div>
-                  <span class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-500">Hoje no Seu Cronograma</span>
+                  <span class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-500">Resumo do Dia no Cronograma</span>
                   <h3 id="dash-current-week-title" class="text-lg font-extrabold mt-0.5 text-brand-900 dark:text-white">Semana 1 • Janeiro</h3>
                 </div>
-                <button onclick="switchTab('schedule')" class="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-800 text-white text-xs font-bold transition flex items-center gap-2 shadow-sm">
+                <button type="button" onclick="switchTab('schedule')" class="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-800 text-white text-xs font-bold transition flex items-center gap-2 shadow-sm">
                   <span>Abrir Cronograma Completo</span>
                   <i class="fa-solid fa-arrow-right"></i>
                 </button>
@@ -291,7 +335,7 @@
             </div>
           </div>
 
-          <div class="bg-white dark:bg-brand-900 rounded-2xl border border-[#AED5F5]/60 dark:border-brand-800 p-6 shadow-sm space-y-5">
+          <div class="bg-white dark:bg-brand-900 rounded-2xl border border-[#4BA3E3]/30 dark:border-brand-800 p-6 shadow-sm space-y-5">
             <div>
               <div class="flex items-center justify-between gap-2 text-brand-800 dark:text-white font-extrabold text-base">
                 <div class="flex items-center gap-2">
@@ -305,7 +349,7 @@
               </p>
             </div>
 
-            <div class="p-3.5 rounded-xl bg-[#AED5F5]/25 dark:bg-brand-800/50 border border-[#4FACE5]/30 space-y-1.5">
+            <div class="p-3.5 rounded-xl bg-[#EBF5FF]/70 dark:bg-brand-800/50 border border-[#4BA3E3]/30 space-y-1.5">
               <div class="text-xs font-bold text-brand-900 dark:text-white">
                 Referências de Corte (UFC Fortaleza)
               </div>
@@ -316,8 +360,8 @@
               </div>
             </div>
 
-            <div class="p-3.5 rounded-xl bg-[#F2F7FC] dark:bg-brand-950 border border-[#AED5F5]/50 dark:border-brand-800 space-y-1.5 text-xs">
-              <p class="font-bold text-brand-900 dark:text-white"><i class="fa-solid fa-clock text-brand-600 dark:text-brand-500 mr-1"></i> Blocos do Dia (Saída 18h30)</p>
+            <div class="p-3.5 rounded-xl bg-[#F2F7FC] dark:bg-brand-950 border border-[#4BA3E3]/25 dark:border-brand-800 space-y-1.5 text-xs">
+              <p class="font-bold text-brand-900 dark:text-white"><i class="fa-solid fa-clock text-brand-600 dark:text-brand-500 mr-1"></i> Blocos do Dia (Escola 12h–18h30)</p>
               <p class="text-brand-800/80 dark:text-brand-200/80">• <strong>08h00–10h00:</strong> Bloco 1 (Manhã)</p>
               <p class="text-brand-800/80 dark:text-brand-200/80">• <strong>10h15–11h45:</strong> Bloco 2 (Manhã)</p>
               <p class="text-brand-800/80 dark:text-brand-200/80">• <strong>12h00–18h30:</strong> Escola Pública</p>
@@ -329,41 +373,56 @@
 
       <!-- ==================== TAB 2: SCHEDULE ==================== -->
       <section id="tab-schedule" class="tab-content hidden space-y-6">
-        <div class="bg-white dark:bg-brand-900 rounded-2xl border border-[#AED5F5]/60 dark:border-brand-800 p-5 sm:p-6 shadow-sm space-y-5">
+        <div class="bg-white dark:bg-brand-900 rounded-2xl border border-[#4BA3E3]/30 dark:border-brand-800 p-5 sm:p-6 shadow-sm space-y-5">
           <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
               <span class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-500">Planejamento Anual Completo (46 Semanas)</span>
               <h2 class="text-xl sm:text-2xl font-extrabold mt-0.5 text-brand-900 dark:text-white">Cronograma de Estudos • Janeiro a Novembro</h2>
             </div>
-            <div class="flex items-center gap-2">
-              <button onclick="navigateWeek(-1)" class="px-3.5 py-2.5 rounded-xl bg-[#AED5F5]/30 dark:bg-brand-800 hover:bg-[#AED5F5]/50 dark:hover:bg-brand-600 text-xs font-bold transition text-brand-900 dark:text-white">
+            <div class="flex flex-wrap items-center gap-2">
+              <select id="schedule-subject-filter" onchange="renderSchedule()" class="px-3 py-2 rounded-xl bg-[#F2F7FC] dark:bg-brand-950 border border-[#4BA3E3]/40 dark:border-brand-800 text-xs font-bold text-brand-900 dark:text-white">
+                <option value="TODAS">Todas as disciplinas</option>
+                <option value="Matemática">Matemática</option>
+                <option value="Física">Física</option>
+                <option value="Química">Química</option>
+                <option value="Biologia">Biologia</option>
+                <option value="Linguagens">Linguagens</option>
+                <option value="História">História</option>
+                <option value="Geografia">Geografia</option>
+                <option value="Filosofia">Filosofia</option>
+                <option value="Sociologia">Sociologia</option>
+                <option value="Atualidades">Atualidades</option>
+                <option value="Redação">Redação</option>
+                <option value="Simulado">Simulado</option>
+              </select>
+              <button type="button" onclick="navigateWeek(-1)" class="px-3.5 py-2.5 rounded-xl bg-[#EBF5FF] dark:bg-brand-800 hover:bg-[#4BA3E3]/25 dark:hover:bg-brand-600 text-xs font-bold transition text-brand-900 dark:text-white">
                 <i class="fa-solid fa-chevron-left mr-1"></i> Anterior
               </button>
-              <button onclick="navigateWeek(1)" class="px-3.5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-800 text-white text-xs font-bold transition">
+              <button type="button" onclick="navigateWeek(1)" class="px-3.5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-800 text-white text-xs font-bold transition">
                 Próxima <i class="fa-solid fa-chevron-right ml-1"></i>
               </button>
             </div>
           </div>
 
           <div>
-            <label class="text-[11px] font-bold uppercase tracking-wider text-brand-800/70 dark:text-brand-200/70 block mb-2">Selecione o Mês:</label>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-brand-800/70 dark:text-brand-200/70 block mb-2">Selecione o Mês:</span>
             <div id="month-selector" class="flex flex-wrap gap-1.5"></div>
           </div>
 
           <div>
-            <label class="text-[11px] font-bold uppercase tracking-wider text-brand-800/70 dark:text-brand-200/70 block mb-2">Semanas do Mês:</label>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-brand-800/70 dark:text-brand-200/70 block mb-2">Semanas do Mês:</span>
             <div id="week-selector" class="grid grid-cols-2 sm:grid-cols-5 gap-2"></div>
           </div>
         </div>
 
-        <div id="week-header-banner" class="rounded-2xl bg-gradient-to-r from-[#353A4C] via-[#394988] to-[#367ADF] text-white p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-md border border-[#4FACE5]/30"></div>
+        <div id="week-header-banner" class="rounded-2xl bg-gradient-to-r from-[#353A4C] via-[#394988] to-[#2B6CB0] text-white p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-md border border-[#4BA3E3]/30"></div>
         <div id="week-days-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-5"></div>
       </section>
 
-      <!-- ==================== TAB 3: SIMULADOS ==================== -->
+      <!-- ==================== TAB 3: SIMULADOS & ERROS ==================== -->
       <section id="tab-simulados" class="tab-content hidden space-y-6">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div class="bg-white dark:bg-brand-900 rounded-2xl border border-[#AED5F5]/60 dark:border-brand-800 p-6 shadow-sm space-y-4">
+          <div class="bg-white dark:bg-brand-900 rounded-2xl border border-[#4BA3E3]/30 dark:border-brand-800 p-6 shadow-sm space-y-4">
             <div class="flex items-center gap-2.5">
               <div class="w-10 h-10 rounded-xl bg-brand-600/15 text-brand-600 dark:text-brand-500 flex items-center justify-center text-lg">
                 <i class="fa-solid fa-calculator"></i>
@@ -376,18 +435,18 @@
 
             <form id="simulado-form" onsubmit="saveSimulado(event)" class="space-y-3.5">
               <div>
-                <label class="block text-xs font-bold mb-1">Nome do Simulado</label>
-                <input type="text" id="sim-name" required placeholder="Ex: ENEM 2024 - Dia 1 e 2" class="w-full px-3.5 py-2.5 rounded-xl bg-[#F2F7FC] dark:bg-brand-950 border border-[#AED5F5]/70 dark:border-brand-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-600" />
+                <label for="sim-name" class="block text-xs font-bold mb-1">Nome do Simulado</label>
+                <input type="text" id="sim-name" required placeholder="Ex: ENEM 2024 - Dia 1 e 2" class="w-full px-3.5 py-2.5 rounded-xl bg-[#F2F7FC] dark:bg-brand-950 border border-[#4BA3E3]/40 dark:border-brand-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-600" />
               </div>
 
               <div class="grid grid-cols-2 gap-3">
                 <div>
-                  <label class="block text-xs font-bold mb-1">Data</label>
-                  <input type="date" id="sim-date" required class="w-full px-3 py-2 rounded-xl bg-[#F2F7FC] dark:bg-brand-950 border border-[#AED5F5]/70 dark:border-brand-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-600" />
+                  <label for="sim-date" class="block text-xs font-bold mb-1">Data</label>
+                  <input type="date" id="sim-date" required class="w-full px-3 py-2 rounded-xl bg-[#F2F7FC] dark:bg-brand-950 border border-[#4BA3E3]/40 dark:border-brand-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-600" />
                 </div>
                 <div>
-                  <label class="block text-xs font-bold mb-1">Tipo</label>
-                  <select id="sim-type" class="w-full px-3 py-2 rounded-xl bg-[#F2F7FC] dark:bg-brand-950 border border-[#AED5F5]/70 dark:border-brand-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-600">
+                  <label for="sim-type" class="block text-xs font-bold mb-1">Tipo</label>
+                  <select id="sim-type" class="w-full px-3 py-2 rounded-xl bg-[#F2F7FC] dark:bg-brand-950 border border-[#4BA3E3]/40 dark:border-brand-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-600">
                     <option value="Completo">Completo (180q)</option>
                     <option value="Dia 1">Dia 1 (90q + Red)</option>
                     <option value="Dia 2">Dia 2 (90q)</option>
@@ -396,38 +455,92 @@
                 </div>
               </div>
 
-              <div class="p-3 rounded-xl bg-[#F2F7FC] dark:bg-brand-950/80 border border-[#AED5F5]/60 dark:border-brand-800 space-y-2.5">
+              <div class="p-3 rounded-xl bg-[#F2F7FC] dark:bg-brand-950/80 border border-[#4BA3E3]/30 dark:border-brand-800 space-y-2.5">
                 <p class="text-[11px] font-bold uppercase tracking-wider text-brand-800/70 dark:text-brand-200/70">Acertos Estimados (0 a 45)</p>
                 <div class="grid grid-cols-2 gap-2.5">
-                  <div><label class="block text-[11px] font-semibold">Linguagens</label><input type="number" id="sim-lc" min="0" max="45" value="35" required class="w-full mt-0.5 px-2.5 py-1.5 rounded-lg bg-white dark:bg-brand-900 border border-[#AED5F5]/70 dark:border-brand-800 text-sm font-mono" /></div>
-                  <div><label class="block text-[11px] font-semibold">Humanas</label><input type="number" id="sim-ch" min="0" max="45" value="38" required class="w-full mt-0.5 px-2.5 py-1.5 rounded-lg bg-white dark:bg-brand-900 border border-[#AED5F5]/70 dark:border-brand-800 text-sm font-mono" /></div>
-                  <div><label class="block text-[11px] font-semibold text-brand-600 dark:text-brand-500">Natureza</label><input type="number" id="sim-cn" min="0" max="45" value="34" required class="w-full mt-0.5 px-2.5 py-1.5 rounded-lg bg-white dark:bg-brand-900 border border-brand-500/50 text-sm font-mono" /></div>
-                  <div><label class="block text-[11px] font-semibold text-brand-800 dark:text-brand-200">Matemática</label><input type="number" id="sim-mt" min="0" max="45" value="38" required class="w-full mt-0.5 px-2.5 py-1.5 rounded-lg bg-white dark:bg-brand-900 border border-brand-600/50 text-sm font-mono" /></div>
+                  <div><label for="sim-lc" class="block text-[11px] font-semibold">Linguagens</label><input type="number" id="sim-lc" min="0" max="45" value="35" required class="w-full mt-0.5 px-2.5 py-1.5 rounded-lg bg-white dark:bg-brand-900 border border-[#4BA3E3]/40 dark:border-brand-800 text-sm font-mono" /></div>
+                  <div><label for="sim-ch" class="block text-[11px] font-semibold">Humanas</label><input type="number" id="sim-ch" min="0" max="45" value="38" required class="w-full mt-0.5 px-2.5 py-1.5 rounded-lg bg-white dark:bg-brand-900 border border-[#4BA3E3]/40 dark:border-brand-800 text-sm font-mono" /></div>
+                  <div><label for="sim-cn" class="block text-[11px] font-semibold text-brand-600 dark:text-brand-500">Natureza</label><input type="number" id="sim-cn" min="0" max="45" value="34" required class="w-full mt-0.5 px-2.5 py-1.5 rounded-lg bg-white dark:bg-brand-900 border border-brand-500/50 text-sm font-mono" /></div>
+                  <div><label for="sim-mt" class="block text-[11px] font-semibold text-brand-800 dark:text-brand-200">Matemática</label><input type="number" id="sim-mt" min="0" max="45" value="38" required class="w-full mt-0.5 px-2.5 py-1.5 rounded-lg bg-white dark:bg-brand-900 border border-brand-600/50 text-sm font-mono" /></div>
                 </div>
                 <div>
-                  <label class="block text-[11px] font-semibold text-brand-800 dark:text-white">Nota Redação (0 a 1000)</label>
+                  <label for="sim-red" class="block text-[11px] font-semibold text-brand-800 dark:text-white">Nota Redação (0 a 1000)</label>
                   <input type="number" id="sim-red" min="0" max="1000" step="20" value="920" required class="w-full mt-0.5 px-2.5 py-1.5 rounded-lg bg-white dark:bg-brand-900 border border-brand-600/50 text-sm font-mono" />
                 </div>
               </div>
 
               <div>
-                <label class="block text-xs font-bold mb-1">Erros a Revisar</label>
-                <textarea id="sim-notes" rows="2" placeholder="Ex: Errei eletrodinâmica e estequiometria..." class="w-full px-3 py-2 rounded-xl bg-[#F2F7FC] dark:bg-brand-950 border border-[#AED5F5]/70 dark:border-brand-800 text-xs focus:outline-none focus:ring-2 focus:ring-brand-600"></textarea>
+                <label for="sim-notes" class="block text-xs font-bold mb-1">Erros a Revisar</label>
+                <textarea id="sim-notes" rows="2" placeholder="Ex: Errei eletrodinâmica e estequiometria..." class="w-full px-3 py-2 rounded-xl bg-[#F2F7FC] dark:bg-brand-950 border border-[#4BA3E3]/40 dark:border-brand-800 text-xs focus:outline-none focus:ring-2 focus:ring-brand-600"></textarea>
               </div>
 
-              <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-[#367ADF] to-[#4FACE5] hover:from-[#394988] hover:to-[#367ADF] text-white font-bold text-sm shadow-lg shadow-brand-600/25 transition">
+              <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-[#2B6CB0] to-[#4BA3E3] hover:from-[#394988] hover:to-[#2B6CB0] text-white font-bold text-sm shadow-lg shadow-brand-600/25 transition">
                 <i class="fa-solid fa-plus-circle mr-1.5"></i> Salvar Simulado
               </button>
             </form>
           </div>
 
           <div class="lg:col-span-2 space-y-6">
-            <div class="bg-white dark:bg-brand-900 rounded-2xl border border-[#AED5F5]/60 dark:border-brand-800 p-6 shadow-sm">
-              <div class="flex items-center justify-between mb-4">
+            <div class="bg-white dark:bg-brand-900 rounded-2xl border border-[#4BA3E3]/30 dark:border-brand-800 p-6 shadow-sm">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
                 <h3 class="font-extrabold text-base text-brand-900 dark:text-white">Histórico de Simulados</h3>
                 <span class="text-[11px] text-brand-800/70 dark:text-brand-200/70">Estimativa TRI ilustrativa • Média UFC ÷ 5</span>
               </div>
               <div id="simulados-list" class="space-y-3"></div>
+            </div>
+
+            <!-- Caderno de Erros para Revisão -->
+            <div class="bg-white dark:bg-brand-900 rounded-2xl border border-[#4BA3E3]/30 dark:border-brand-800 p-6 shadow-sm space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div>
+                  <h3 class="font-extrabold text-base text-brand-900 dark:text-white">Caderno de Erros &amp; Revisão</h3>
+                  <p class="text-xs text-brand-800/75 dark:text-brand-200/75">Registre o motivo de cada erro para revisar à noite ou no sábado.</p>
+                </div>
+                <span id="error-notebook-counter" class="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-brand-600/15 text-brand-600 dark:text-brand-200">0 abertos</span>
+              </div>
+
+              <form id="error-notebook-form" onsubmit="saveNotebookError(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label for="err-subject" class="block text-xs font-bold mb-1">Disciplina</label>
+                  <select id="err-subject" class="w-full px-3 py-2 rounded-xl bg-[#F2F7FC] dark:bg-brand-950 border border-[#4BA3E3]/40 dark:border-brand-800 text-xs font-semibold">
+                    <option value="Matemática">Matemática</option>
+                    <option value="Física">Física</option>
+                    <option value="Química">Química</option>
+                    <option value="Biologia">Biologia</option>
+                    <option value="Linguagens">Linguagens</option>
+                    <option value="História">História</option>
+                    <option value="Geografia">Geografia</option>
+                    <option value="Filosofia">Filosofia</option>
+                    <option value="Sociologia">Sociologia</option>
+                    <option value="Atualidades">Atualidades</option>
+                    <option value="Redação">Redação</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="err-cause" class="block text-xs font-bold mb-1">Causa do erro</label>
+                  <select id="err-cause" class="w-full px-3 py-2 rounded-xl bg-[#F2F7FC] dark:bg-brand-950 border border-[#4BA3E3]/40 dark:border-brand-800 text-xs font-semibold">
+                    <option value="Lacuna de base teórica">Lacuna de base teórica</option>
+                    <option value="Leitura / interpretação">Leitura / interpretação</option>
+                    <option value="Cálculo / atenção">Cálculo / atenção</option>
+                    <option value="Gestão de tempo / estratégia">Gestão de tempo / estratégia</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="err-topic" class="block text-xs font-bold mb-1">Assunto / Questão</label>
+                  <input type="text" id="err-topic" required placeholder="Ex: Estequiometria — reagente limitante" class="w-full px-3 py-2 rounded-xl bg-[#F2F7FC] dark:bg-brand-950 border border-[#4BA3E3]/40 dark:border-brand-800 text-xs" />
+                </div>
+                <div>
+                  <label for="err-fix" class="block text-xs font-bold mb-1">Como revisar</label>
+                  <input type="text" id="err-fix" required placeholder="Ex: Refazer 3 questões e revisar conversão em mol" class="w-full px-3 py-2 rounded-xl bg-[#F2F7FC] dark:bg-brand-950 border border-[#4BA3E3]/40 dark:border-brand-800 text-xs" />
+                </div>
+                <div class="sm:col-span-2">
+                  <button type="submit" class="px-4 py-2.5 rounded-xl bg-brand-800 hover:bg-brand-600 text-white text-xs font-bold transition">
+                    <i class="fa-solid fa-bookmark mr-1.5"></i> Adicionar ao Caderno de Erros
+                  </button>
+                </div>
+              </form>
+
+              <div id="error-notebook-list" class="space-y-2.5"></div>
             </div>
           </div>
         </div>
@@ -435,40 +548,40 @@
 
       <!-- ==================== TAB 4: CHANNELS & OFFICIAL GUIDE ==================== -->
       <section id="tab-channels" class="tab-content hidden space-y-6">
-        <div class="bg-gradient-to-r from-[#353A4C] via-[#394988] to-[#367ADF] text-white rounded-2xl p-6 sm:p-8 border border-[#4FACE5]/30 shadow-lg space-y-2">
-          <h2 class="text-2xl font-extrabold">Canais do YouTube & Guia Oficial ENEM 2027 / UFC</h2>
-          <p class="text-[#AED5F5] text-sm max-w-3xl leading-relaxed">
-            Ecossistema 100% gratuito com os 5 professores selecionados, separando o que já é regra garantida do que só será confirmado após a publicação do edital oficial do INEP / SISU.
+        <div class="bg-gradient-to-r from-[#353A4C] via-[#394988] to-[#2B6CB0] text-white rounded-2xl p-6 sm:p-8 border border-[#4BA3E3]/30 shadow-lg space-y-2">
+          <h2 class="text-2xl font-extrabold">Canais do YouTube &amp; Guia Oficial ENEM 2027 / UFC</h2>
+          <p class="text-[#EBF5FF] text-sm max-w-3xl leading-relaxed">
+            Ecossistema 100% gratuito com os 5 professores selecionados, separando o que já é regra conhecida do que só será confirmado após a publicação do edital oficial do INEP / SISU / UFC.
           </p>
         </div>
 
         <div id="channels-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div class="bg-white dark:bg-brand-900 rounded-2xl border border-[#AED5F5]/60 dark:border-brand-800 p-6 shadow-sm space-y-3">
+          <div class="bg-white dark:bg-brand-900 rounded-2xl border border-[#4BA3E3]/30 dark:border-brand-800 p-6 shadow-sm space-y-3">
             <h3 class="font-extrabold text-base text-brand-600 dark:text-brand-500">
               <i class="fa-solid fa-circle-check mr-1.5"></i> O que já é regra conhecida / base segura
             </h3>
             <ul class="text-xs sm:text-sm text-brand-800 dark:text-brand-200/90 space-y-2 leading-relaxed">
-              <li>• <strong>UFC Fortaleza (Porangabuçu):</strong> 160 vagas anuais (80 no 1º semestre e 80 no 2º semestre) via SISU, com <strong>média aritmética simples (peso 1,00 em todas as 5 áreas: soma ÷ 5)</strong>.</li>
-              <li>• <strong>Concluinte de Escola Pública:</strong> Participa do ENEM valendo vaga (não como treineira) e pode concorrer na Ampla Concorrência e nas cotas de Escola Pública (LI_EP / LB_EP), conforme documentação exigida no momento da matrícula.</li>
-              <li>• <strong>Base Conteudista:</strong> Os conteúdos cobrados no ENEM e a prática de questões e redação continuam sendo o núcleo da preparação.</li>
+              <li>• <strong>UFC Fortaleza (Campus Fortaleza / Porangabuçu):</strong> 160 vagas anuais (80 no 1º semestre e 80 no 2º semestre) via SISU, com <strong>média aritmética simples (peso 1,00 em todas as 5 áreas: soma ÷ 5)</strong>.</li>
+              <li>• <strong>Concluinte de Escola Pública:</strong> Participa do ENEM valendo vaga e pode concorrer na Ampla Concorrência e nas cotas de Escola Pública (LI_EP / LB_EP), conforme documentação exigida na matrícula.</li>
+              <li>• <strong>Base Conteudista:</strong> Os conteúdos do ENEM, a resolução de questões e a prática de redação continuam sendo o núcleo da preparação.</li>
             </ul>
           </div>
 
-          <div class="bg-white dark:bg-brand-900 rounded-2xl border border-[#AED5F5]/60 dark:border-brand-800 p-6 shadow-sm space-y-3">
+          <div class="bg-white dark:bg-brand-900 rounded-2xl border border-[#4BA3E3]/30 dark:border-brand-800 p-6 shadow-sm space-y-3">
             <h3 class="font-extrabold text-base text-brand-800 dark:text-white">
               <i class="fa-solid fa-file-contract mr-1.5 text-brand-600 dark:text-brand-500"></i> O que só o edital / calendário oficial confirma
             </h3>
             <ul class="text-xs sm:text-sm text-brand-800 dark:text-brand-200/90 space-y-2 leading-relaxed">
               <li>• <strong>Datas exatas do ENEM 2027:</strong> Dias de prova, prazos de isenção, inscrição e divulgação de gabaritos/resultados dependem do edital oficial do INEP.</li>
-              <li>• <strong>Regras e prazos do SISU e da UFC:</strong> Oferta de vagas por edição, critérios de comprovação de renda/escola pública e cronograma de matrícula dependem dos editais oficiais.</li>
-              <li>• <strong>Notas de corte:</strong> Valores de edições anteriores servem apenas como referência; a nota de corte real é definida na edição vigente conforme a concorrência.</li>
+              <li>• <strong>Regras e prazos do SISU e da UFC:</strong> Oferta de vagas por edição, critérios de comprovação e cronograma de matrícula dependem dos editais oficiais.</li>
+              <li>• <strong>Notas de corte:</strong> Valores de referência de edições anteriores não garantem a nota de corte da edição vigente.</li>
             </ul>
           </div>
         </div>
 
-        <div class="bg-white dark:bg-brand-900 rounded-2xl border border-[#AED5F5]/60 dark:border-brand-800 p-6 shadow-sm space-y-4">
+        <div class="bg-white dark:bg-brand-900 rounded-2xl border border-[#4BA3E3]/30 dark:border-brand-800 p-6 shadow-sm space-y-4">
           <div class="flex items-center justify-between">
             <h3 class="font-extrabold text-base flex items-center gap-2 text-brand-900 dark:text-white">
               <i class="fa-solid fa-list-check text-brand-600 dark:text-brand-500"></i>
@@ -484,80 +597,99 @@
   </main>
 
   <script>
-    // 1. GERAÇÃO DO ÍCONE PERSONALIZADO (180x180 PNG) PARA TELA INICIAL iOS & ANDROID
-    function generateCustomAppIcons() {
+    // =========================================================================
+    // 1. ÍCONE UNIFICADO (BASTÃO DE ASCLÉPIO + CURVAS FLUIDAS DE CIFRÃO)
+    // =========================================================================
+    function drawAsclepiusDollarIcon(size) {
+      const canvas = document.createElement('canvas');
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return null;
+
+      const s = size / 180;
+      ctx.save();
+      ctx.scale(s, s);
+
+      const bgGrad = ctx.createLinearGradient(18, 12, 162, 168);
+      bgGrad.addColorStop(0, '#4BA3E3');
+      bgGrad.addColorStop(0.55, '#2B6CB0');
+      bgGrad.addColorStop(1, '#394988');
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, 180, 180);
+
+      const topLight = ctx.createRadialGradient(52, 30, 6, 75, 50, 115);
+      topLight.addColorStop(0, 'rgba(235, 245, 255, 0.52)');
+      topLight.addColorStop(0.45, 'rgba(75, 163, 227, 0.25)');
+      topLight.addColorStop(1, 'rgba(53, 58, 76, 0)');
+      ctx.fillStyle = topLight;
+      ctx.fillRect(0, 0, 180, 180);
+
+      const bottomDepth = ctx.createLinearGradient(0, 110, 0, 180);
+      bottomDepth.addColorStop(0, 'rgba(53, 58, 76, 0)');
+      bottomDepth.addColorStop(1, 'rgba(53, 58, 76, 0.38)');
+      ctx.fillStyle = bottomDepth;
+      ctx.fillRect(0, 0, 180, 180);
+
+      ctx.save();
+      ctx.shadowColor = 'rgba(53, 58, 76, 0.52)';
+      ctx.shadowBlur = 11;
+      ctx.shadowOffsetX = 2;
+      ctx.shadowOffsetY = 5;
+
+      ctx.strokeStyle = '#EBF5FF';
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.lineWidth = 11.5;
+      ctx.beginPath();
+      ctx.moveTo(90, 20);
+      ctx.lineTo(90, 160);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(118, 48);
+      ctx.bezierCurveTo(118, 32, 62, 32, 62, 56);
+      ctx.bezierCurveTo(62, 79, 118, 76, 118, 100);
+      ctx.bezierCurveTo(118, 124, 62, 120, 62, 138);
+      ctx.bezierCurveTo(62, 150, 98, 150, 112, 142);
+      ctx.stroke();
+
+      ctx.fillStyle = '#EBF5FF';
+      ctx.beginPath();
+      ctx.arc(118, 48, 8.2, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+
+      ctx.fillStyle = '#2B6CB0';
+      ctx.beginPath();
+      ctx.arc(120, 47, 2.8, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.restore();
+      return canvas.toDataURL('image/png');
+    }
+
+    function applyUnifiedBrandIconEverywhere() {
       try {
-        const canvas = document.createElement('canvas');
-        canvas.width = 180;
-        canvas.height = 180;
-        const ctx = canvas.getContext('2d');
-        if (!ctx) return;
+        const icon180 = drawAsclepiusDollarIcon(180);
+        const icon512 = drawAsclepiusDollarIcon(512);
+        const primaryUrl = icon512 || icon180;
+        if (!primaryUrl) return;
 
-        // Degradê 3D baseado na paleta (Fresh Sky -> Azure Blue -> French Blue)
-        const bgGrad = ctx.createLinearGradient(0, 0, 180, 180);
-        bgGrad.addColorStop(0, '#4FACE5');
-        bgGrad.addColorStop(0.52, '#367ADF');
-        bgGrad.addColorStop(1, '#394988');
-        ctx.fillStyle = bgGrad;
-        ctx.fillRect(0, 0, 180, 180);
-
-        // Brilho superior suave (efeito 3D)
-        const gloss = ctx.createRadialGradient(45, 35, 5, 65, 55, 110);
-        gloss.addColorStop(0, 'rgba(174, 213, 245, 0.55)');
-        gloss.addColorStop(1, 'rgba(174, 213, 245, 0)');
-        ctx.fillStyle = gloss;
-        ctx.fillRect(0, 0, 180, 180);
-
-        // Sombra do símbolo em relevo
-        ctx.save();
-        ctx.shadowColor = 'rgba(53, 58, 44, 0.48)';
-        ctx.shadowBlur = 10;
-        ctx.shadowOffsetX = 2;
-        ctx.shadowOffsetY = 5;
-
-        // Bastão central
-        ctx.strokeStyle = '#AED5F5';
-        ctx.lineCap = 'round';
-        ctx.lineJoin = 'round';
-        ctx.lineWidth = 12;
-        ctx.beginPath();
-        ctx.moveTo(90, 26);
-        ctx.lineTo(90, 154);
-        ctx.stroke();
-
-        // Serpente em relevo claro
-        ctx.strokeStyle = '#E5F2FC';
-        ctx.lineWidth = 11.5;
-        ctx.beginPath();
-        ctx.moveTo(64, 52);
-        ctx.bezierCurveTo(64, 34, 118, 34, 118, 58);
-        ctx.bezierCurveTo(118, 80, 62, 74, 62, 96);
-        ctx.bezierCurveTo(62, 118, 118, 112, 118, 132);
-        ctx.bezierCurveTo(118, 145, 98, 147, 84, 141);
-        ctx.stroke();
-
-        // Cabeça da serpente
-        ctx.fillStyle = '#E5F2FC';
-        ctx.beginPath();
-        ctx.arc(64, 52, 8.5, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
-
-        // Olho da serpente
-        ctx.fillStyle = '#367ADF';
-        ctx.beginPath();
-        ctx.arc(62, 51, 3, 0, Math.PI * 2);
-        ctx.fill();
-
-        const pngUrl = canvas.toDataURL('image/png');
         const appleIcon = document.getElementById('apple-touch-icon-link');
         const favIcon = document.getElementById('favicon-link');
-        if (appleIcon) appleIcon.href = pngUrl;
-        if (favIcon) favIcon.href = pngUrl;
+        if (appleIcon) appleIcon.href = icon180 || primaryUrl;
+        if (favIcon) favIcon.href = primaryUrl;
+
+        document.querySelectorAll('.medufc-brand-icon-img').forEach(img => {
+          img.src = primaryUrl;
+        });
       } catch (e) {}
     }
 
+    // =========================================================================
     // 2. DADOS OFICIAIS & MODALIDADES UFC FORTALEZA (PESO 1,00 EM TODAS AS 5 ÁREAS)
+    // =========================================================================
     const UFC_MODALITIES = {
       li_ep: { id: 'li_ep', code: 'LI_EP', shortLabel: 'LI_EP • Escola Pública', sidebarLabel: 'Meta LI_EP', cutoff: 802.42, cutoffDisplay: '802,42' },
       lb_ep: { id: 'lb_ep', code: 'LB_EP', shortLabel: 'LB_EP • Renda ≤1 SM', sidebarLabel: 'Meta LB_EP', cutoff: 778.08, cutoffDisplay: '778,08' },
@@ -574,7 +706,9 @@
       { id: 'chk-sisu', title: 'Acompanhar SISU e Matrícula na UFC Fortaleza', detail: 'Conferir prazos oficiais, lista de chamada e documentos exigidos pela UFC.' }
     ];
 
+    // =========================================================================
     // 3. OS 5 CANAIS DO YOUTUBE SELECIONADOS
+    // =========================================================================
     const CHANNELS = {
       assaad: { id: 'assaad', name: 'Pedro Assaad', shortName: 'Assaad', subjects: ['Matemática', 'Física', 'Química', 'Biologia', 'Linguagens'], url: 'https://www.youtube.com/@PedroAssaad' },
       parabolica: { id: 'parabolica', name: 'Parabólica', shortName: 'Parabólica', subjects: ['Atualidades', 'Filosofia', 'Sociologia'], url: 'https://www.youtube.com/@Parab%C3%B3lica' },
@@ -583,7 +717,9 @@
       thais: { id: 'thais', name: 'Thais Formagio', shortName: 'Thais Formagio', subjects: ['Geografia'], url: 'https://www.youtube.com/@ThaisFormagio' }
     };
 
+    // =========================================================================
     // 4. MESES E 46 SEMANAS (JANEIRO A NOVEMBRO)
+    // =========================================================================
     const MONTHS_META = [
       { id: 0, name: 'Janeiro', weeks: [1, 2, 3, 4] },
       { id: 1, name: 'Fevereiro', weeks: [5, 6, 7, 8] },
@@ -692,7 +828,6 @@
 
     const CURRICULUM = generateFullCurriculum();
 
-    // Índice rápido de tarefas por ID (sincroniza aulas concluídas com questões resolvidas)
     const TASK_LOOKUP = {};
     CURRICULUM.forEach(w => {
       w.days.forEach(d => {
@@ -702,7 +837,9 @@
       });
     });
 
+    // =========================================================================
     // 5. ESTADO & PERSISTÊNCIA LOCAL
+    // =========================================================================
     const STORAGE_KEY = 'medufc_fortaleza_2027_clean_v1';
 
     const DEFAULT_STATE = {
@@ -715,7 +852,8 @@
       completedLessons: {},
       officialChecklist: {},
       activeDates: [],
-      simulados: []
+      simulados: [],
+      errorNotebook: []
     };
 
     function cloneDefaultState() {
@@ -735,7 +873,8 @@
           completedLessons: parsed.completedLessons || {},
           officialChecklist: parsed.officialChecklist || {},
           activeDates: Array.isArray(parsed.activeDates) ? parsed.activeDates : [],
-          simulados: Array.isArray(parsed.simulados) ? parsed.simulados : []
+          simulados: Array.isArray(parsed.simulados) ? parsed.simulados : [],
+          errorNotebook: Array.isArray(parsed.errorNotebook) ? parsed.errorNotebook : []
         };
       } catch (e) {
         return cloneDefaultState();
@@ -743,11 +882,21 @@
     }
 
     function saveState() {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+      } catch (e) {}
+    }
+
+    function getLocalDateKey() {
+      const now = new Date();
+      const y = now.getFullYear();
+      const m = String(now.getMonth() + 1).padStart(2, '0');
+      const d = String(now.getDate()).padStart(2, '0');
+      return `${y}-${m}-${d}`;
     }
 
     function recordTodayActivity() {
-      const today = new Date().toISOString().split('T')[0];
+      const today = getLocalDateKey();
       if (!appState.activeDates.includes(today)) {
         appState.activeDates.push(today);
         saveState();
@@ -758,7 +907,7 @@
       const container = document.getElementById('toast-container');
       const toast = document.createElement('div');
       const bg = type === 'success' ? 'bg-brand-600' : (type === 'error' ? 'bg-red-600' : 'bg-brand-900');
-      toast.className = `${bg} text-white px-4 py-3 rounded-xl shadow-lg font-semibold text-sm transition-all duration-300 transform translate-y-2 opacity-0 border border-[#AED5F5]/30`;
+      toast.className = `${bg} text-white px-4 py-3 rounded-xl shadow-lg font-semibold text-sm transition-all duration-300 transform translate-y-2 opacity-0 border border-[#EBF5FF]/30`;
       toast.innerHTML = `<i class="fa-solid fa-circle-info mr-2"></i>${msg}`;
       container.appendChild(toast);
       setTimeout(() => toast.classList.remove('translate-y-2', 'opacity-0'), 10);
@@ -787,8 +936,20 @@
       saveState();
     }
 
+    function openMobileMenu() {
+      document.getElementById('sidebar').classList.remove('-translate-x-full');
+      document.getElementById('mobile-backdrop').classList.remove('hidden');
+    }
+
+    function closeMobileMenu() {
+      document.getElementById('sidebar').classList.add('-translate-x-full');
+      document.getElementById('mobile-backdrop').classList.add('hidden');
+    }
+
     function toggleMobileMenu() {
-      document.getElementById('sidebar').classList.toggle('-translate-x-full');
+      const sidebar = document.getElementById('sidebar');
+      if (sidebar.classList.contains('-translate-x-full')) openMobileMenu();
+      else closeMobileMenu();
     }
 
     function switchTab(tabName) {
@@ -805,7 +966,7 @@
         }
       });
       if (window.innerWidth < 1024) {
-        document.getElementById('sidebar').classList.add('-translate-x-full');
+        closeMobileMenu();
       }
       renderAll();
     }
@@ -814,6 +975,7 @@
       renderDashboard();
       renderSchedule();
       renderSimulados();
+      renderErrorNotebook();
       renderChannels();
       renderOfficialTab();
       renderSidebarStats();
@@ -826,7 +988,7 @@
 
       document.getElementById('sidebar-progress-bar').style.width = `${pct}%`;
       document.getElementById('sidebar-progress-text').textContent = `${pct}% do edital`;
-      document.getElementById('sidebar-streak-text').textContent = `🔥 ${appState.activeDates.length} dias`;
+      document.getElementById('sidebar-streak-text').textContent = `${appState.activeDates.length} dias ativos`;
 
       const mod = UFC_MODALITIES[appState.selectedModality] || UFC_MODALITIES.li_ep;
       document.getElementById('sidebar-target-label').textContent = mod.sidebarLabel;
@@ -845,7 +1007,6 @@
       document.getElementById('stat-lessons-total').textContent = `/ ${totalLessons}`;
       document.getElementById('stat-lessons-bar').style.width = `${totalLessons > 0 ? (doneLessons / totalLessons) * 100 : 0}%`;
 
-      // Soma automática das questões (excluindo redação) das tarefas concluídas + simulados
       let totalQ = 0;
       let totalEssays = 0;
       Object.keys(appState.completedLessons).forEach(taskId => {
@@ -860,7 +1021,7 @@
 
       if (appState.simulados.length > 0) {
         const avg = appState.simulados.reduce((acc, s) => acc + s.ufcScore, 0) / appState.simulados.length;
-        document.getElementById('stat-simulado-avg').textContent = avg.toFixed(1);
+        document.getElementById('stat-simulado-avg').textContent = avg.toFixed(2).replace('.', ',');
         document.getElementById('stat-simulado-count').textContent = `${appState.simulados.length} simulados registrados`;
       } else {
         document.getElementById('stat-simulado-avg').textContent = '--';
@@ -873,7 +1034,7 @@
 
       const pills = document.getElementById('modality-selector-pills');
       pills.innerHTML = Object.values(UFC_MODALITIES).map(m => `
-        <button onclick="selectModality('${m.id}')" class="px-3 py-1.5 rounded-lg text-xs font-bold transition ${appState.selectedModality === m.id ? 'bg-[#AED5F5] text-[#353A4C] shadow-lg' : 'bg-[#353A4C]/70 text-[#AED5F5] hover:bg-[#353A4C]'}">
+        <button type="button" onclick="selectModality('${m.id}')" class="px-3 py-1.5 rounded-lg text-xs font-bold transition ${appState.selectedModality === m.id ? 'bg-[#EBF5FF] text-[#353A4C] shadow-lg' : 'bg-[#353A4C]/70 text-[#EBF5FF] hover:bg-[#353A4C]'}">
           ${m.shortLabel} (${m.cutoffDisplay})
         </button>
       `).join('');
@@ -883,7 +1044,7 @@
 
       const dayPills = document.getElementById('dash-day-pills');
       dayPills.innerHTML = currentWeek.days.map(d => `
-        <button onclick="appState.dashSelectedDay='${d.dayId}'; saveState(); renderDashboard();" class="px-3 py-1.5 rounded-lg text-xs font-bold transition ${appState.dashSelectedDay === d.dayId ? 'bg-brand-600 text-white shadow-sm' : 'bg-[#F2F7FC] dark:bg-brand-800 text-brand-800 dark:text-brand-200'}">
+        <button type="button" onclick="appState.dashSelectedDay='${d.dayId}'; saveState(); renderDashboard();" class="px-3 py-1.5 rounded-lg text-xs font-bold transition ${appState.dashSelectedDay === d.dayId ? 'bg-brand-600 text-white shadow-sm' : 'bg-[#F2F7FC] dark:bg-brand-800 text-brand-800 dark:text-brand-200'}">
           ${d.dayName}
         </button>
       `).join('');
@@ -892,7 +1053,7 @@
       const tasksDiv = document.getElementById('dash-day-tasks');
 
       if (activeDay.isRest) {
-        tasksDiv.innerHTML = `<div class="p-6 text-center text-brand-800/70 dark:text-brand-200/70"><i class="fa-solid fa-mug-hot text-3xl mb-2 text-brand-600 dark:text-brand-500"></i><p>Domingo é dia de descanso obrigatório!</p></div>`;
+        tasksDiv.innerHTML = `<div class="p-6 text-center text-brand-800/70 dark:text-brand-200/70"><i class="fa-solid fa-mug-hot text-3xl mb-2 text-brand-600 dark:text-brand-500"></i><p>Domingo é dia de descanso obrigatório.</p></div>`;
       } else if (activeDay.tasks.length === 0) {
         tasksDiv.innerHTML = `<p class="text-sm text-brand-800/70 p-4">Nenhuma tarefa programada.</p>`;
       } else {
@@ -900,7 +1061,7 @@
           const isDone = !!appState.completedLessons[t.id];
           const ch = CHANNELS[t.channelKey];
           return `
-            <div class="flex items-center justify-between gap-3 p-3 rounded-xl border ${isDone ? 'bg-[#AED5F5]/25 dark:bg-brand-800/40 border-brand-500/40' : 'bg-[#F2F7FC] dark:bg-brand-950 border-[#AED5F5]/60 dark:border-brand-800'}">
+            <div class="flex items-center justify-between gap-3 p-3 rounded-xl border ${isDone ? 'bg-[#EBF5FF]/80 dark:bg-brand-800/40 border-brand-500/40' : 'bg-[#F2F7FC] dark:bg-brand-950 border-[#4BA3E3]/30 dark:border-brand-800'}">
               <div>
                 <div class="flex flex-wrap items-center gap-2">
                   <span class="text-[11px] font-mono text-brand-800/70 dark:text-brand-200/70">${t.slot}</span>
@@ -909,7 +1070,7 @@
                 <p class="font-bold text-sm mt-0.5 ${isDone ? 'line-through opacity-50' : 'text-brand-900 dark:text-white'}">${t.subject} • ${ch ? ch.shortName : ''}</p>
                 <p class="text-xs text-brand-800/75 dark:text-brand-200/75">${t.topic}</p>
               </div>
-              <button onclick="toggleLessonComplete('${t.id}')" class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition ${isDone ? 'bg-brand-600 text-white' : 'bg-white dark:bg-brand-800 text-brand-800/50 dark:text-brand-200/50 border border-[#AED5F5] dark:border-brand-800'}">
+              <button type="button" onclick="toggleLessonComplete('${t.id}')" class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition ${isDone ? 'bg-brand-600 text-white' : 'bg-white dark:bg-brand-800 text-brand-800/50 dark:text-brand-200/50 border border-[#4BA3E3]/40 dark:border-brand-800'}" aria-label="Marcar tarefa como concluída">
                 <i class="fa-solid fa-check"></i>
               </button>
             </div>
@@ -921,7 +1082,7 @@
     function renderSchedule() {
       const monthSel = document.getElementById('month-selector');
       monthSel.innerHTML = MONTHS_META.map(m => `
-        <button onclick="appState.selectedMonth=${m.id}; appState.selectedWeek=${m.weeks[0]}; saveState(); renderSchedule();" class="px-3 py-1.5 rounded-lg text-xs font-bold transition ${appState.selectedMonth === m.id ? 'bg-brand-600 text-white' : 'bg-[#F2F7FC] dark:bg-brand-800 text-brand-800 dark:text-brand-200'}">
+        <button type="button" onclick="appState.selectedMonth=${m.id}; appState.selectedWeek=${m.weeks[0]}; saveState(); renderSchedule();" class="px-3 py-1.5 rounded-lg text-xs font-bold transition ${appState.selectedMonth === m.id ? 'bg-brand-600 text-white' : 'bg-[#F2F7FC] dark:bg-brand-800 text-brand-800 dark:text-brand-200'}">
           ${m.name}
         </button>
       `).join('');
@@ -929,16 +1090,17 @@
       const currentMonth = MONTHS_META[appState.selectedMonth] || MONTHS_META[0];
       const weekSel = document.getElementById('week-selector');
       weekSel.innerHTML = currentMonth.weeks.map(w => `
-        <button onclick="appState.selectedWeek=${w}; saveState(); renderSchedule();" class="px-3 py-2 rounded-xl text-xs font-bold border transition ${appState.selectedWeek === w ? 'bg-brand-800 text-white border-brand-800' : 'bg-[#F2F7FC] dark:bg-brand-950 border-[#AED5F5]/70 dark:border-brand-800 text-brand-900 dark:text-brand-200'}">
+        <button type="button" onclick="appState.selectedWeek=${w}; saveState(); renderSchedule();" class="px-3 py-2 rounded-xl text-xs font-bold border transition ${appState.selectedWeek === w ? 'bg-brand-800 text-white border-brand-800' : 'bg-[#F2F7FC] dark:bg-brand-950 border-[#4BA3E3]/40 dark:border-brand-800 text-brand-900 dark:text-brand-200'}">
           Semana ${w}
         </button>
       `).join('');
 
+      const subjectFilter = document.getElementById('schedule-subject-filter')?.value || 'TODAS';
       const week = CURRICULUM.find(w => w.weekNumber === appState.selectedWeek) || CURRICULUM[0];
       document.getElementById('week-header-banner').innerHTML = `
         <div>
           <h3 class="font-extrabold text-lg">Semana ${week.weekNumber} • ${currentMonth.name}</h3>
-          <p class="text-xs text-[#AED5F5]">Manhã (08h–11h45) • Escola à tarde (saída 18h30) • Noite leve (19h45–20h30)</p>
+          <p class="text-xs text-[#EBF5FF]">Manhã (08h–11h45) • Escola (12h–18h30) • Noite leve (19h45–20h30)</p>
         </div>
       `;
 
@@ -946,7 +1108,7 @@
       grid.innerHTML = week.days.map(d => {
         if (d.isRest) {
           return `
-            <div class="bg-[#AED5F5]/20 dark:bg-brand-900/50 rounded-2xl p-5 border border-[#AED5F5]/60 dark:border-brand-800 flex flex-col items-center justify-center text-center">
+            <div class="bg-[#EBF5FF]/60 dark:bg-brand-900/50 rounded-2xl p-5 border border-[#4BA3E3]/30 dark:border-brand-800 flex flex-col items-center justify-center text-center">
               <i class="fa-solid fa-bed text-2xl text-brand-600 dark:text-brand-500 mb-2"></i>
               <h4 class="font-bold text-brand-900 dark:text-white">Domingo</h4>
               <p class="text-xs text-brand-800/75 dark:text-brand-200/75 mt-1">Descanso Obrigatório</p>
@@ -954,29 +1116,35 @@
           `;
         }
 
+        const visibleTasks = subjectFilter === 'TODAS'
+          ? d.tasks
+          : d.tasks.filter(t => t.subject === subjectFilter);
+
         return `
-          <div class="bg-white dark:bg-brand-900 rounded-2xl p-5 border border-[#AED5F5]/60 dark:border-brand-800 shadow-sm">
-            <h4 class="font-bold border-b border-[#AED5F5]/40 dark:border-brand-800 pb-2 mb-3 text-brand-900 dark:text-white">${d.dayName} ${d.isSimulado ? '<span class="text-[10px] bg-brand-600 text-white px-2 py-0.5 rounded ml-2">SIMULADO</span>' : ''}</h4>
+          <div class="bg-white dark:bg-brand-900 rounded-2xl p-5 border border-[#4BA3E3]/30 dark:border-brand-800 shadow-sm">
+            <h4 class="font-bold border-b border-[#EBF5FF] dark:border-brand-800 pb-2 mb-3 text-brand-900 dark:text-white">${d.dayName} ${d.isSimulado ? '<span class="text-[10px] bg-brand-600 text-white px-2 py-0.5 rounded ml-2">SIMULADO</span>' : ''}</h4>
             <div class="space-y-3">
-              ${d.tasks.map(t => {
-                const isDone = !!appState.completedLessons[t.id];
-                const ch = CHANNELS[t.channelKey];
-                return `
-                  <div class="flex items-start gap-2.5 ${isDone ? 'opacity-60' : ''}">
-                    <button onclick="toggleLessonComplete('${t.id}')" class="mt-0.5 w-5 h-5 rounded border border-brand-600/50 flex items-center justify-center shrink-0 ${isDone ? 'bg-brand-600 border-brand-600 text-white' : ''}">
-                      <i class="fa-solid fa-check text-[10px]"></i>
-                    </button>
-                    <div class="flex-1">
-                      <div class="flex flex-wrap items-center justify-between gap-1">
-                        <span class="text-[11px] font-mono text-brand-800/70 dark:text-brand-200/70">${t.slot}</span>
-                        <span class="text-[11px] font-bold text-brand-600 dark:text-brand-500">${formatGoalLabel(t)}</span>
+              ${visibleTasks.length === 0
+                ? `<p class="text-xs text-brand-800/70 dark:text-brand-200/70">Sem bloco de ${subjectFilter} neste dia.</p>`
+                : visibleTasks.map(t => {
+                  const isDone = !!appState.completedLessons[t.id];
+                  const ch = CHANNELS[t.channelKey];
+                  return `
+                    <div class="flex items-start gap-2.5 ${isDone ? 'opacity-60' : ''}">
+                      <button type="button" onclick="toggleLessonComplete('${t.id}')" class="mt-0.5 w-5 h-5 rounded border border-brand-600/50 flex items-center justify-center shrink-0 ${isDone ? 'bg-brand-600 border-brand-600 text-white' : ''}" aria-label="Concluir item">
+                        <i class="fa-solid fa-check text-[10px]"></i>
+                      </button>
+                      <div class="flex-1">
+                        <div class="flex flex-wrap items-center justify-between gap-1">
+                          <span class="text-[11px] font-mono text-brand-800/70 dark:text-brand-200/70">${t.slot}</span>
+                          <span class="text-[11px] font-bold text-brand-600 dark:text-brand-500">${formatGoalLabel(t)}</span>
+                        </div>
+                        <p class="text-sm font-semibold leading-tight ${isDone ? 'line-through opacity-60' : 'text-brand-900 dark:text-white'}">${t.subject} • <span class="text-xs font-normal text-brand-800/75 dark:text-brand-200/75">${ch ? ch.shortName : ''}</span></p>
+                        <p class="text-xs text-brand-800/75 dark:text-brand-200/75">${t.topic}</p>
                       </div>
-                      <p class="text-sm font-semibold leading-tight ${isDone ? 'line-through opacity-60' : 'text-brand-900 dark:text-white'}">${t.subject} • <span class="text-xs font-normal text-brand-800/75 dark:text-brand-200/75">${ch ? ch.shortName : ''}</span></p>
-                      <p class="text-xs text-brand-800/75 dark:text-brand-200/75">${t.topic}</p>
                     </div>
-                  </div>
-                `;
-              }).join('')}
+                  `;
+                }).join('')}
             </div>
           </div>
         `;
@@ -990,16 +1158,87 @@
         return;
       }
       list.innerHTML = appState.simulados.map(s => `
-        <div class="p-4 rounded-xl border border-[#AED5F5]/60 dark:border-brand-800 bg-[#F2F7FC] dark:bg-brand-950 flex justify-between items-center gap-3">
+        <div class="p-4 rounded-xl border border-[#4BA3E3]/30 dark:border-brand-800 bg-[#F2F7FC] dark:bg-brand-950 flex justify-between items-center gap-3">
           <div>
             <h4 class="font-bold text-sm text-brand-900 dark:text-white">${s.name}</h4>
             <p class="text-xs text-brand-800/75 dark:text-brand-200/75">${s.date} • ${s.type} • Redação: ${s.red}</p>
             <p class="text-xs text-brand-800/60 dark:text-brand-200/60 mt-1">Erros: ${s.notes || 'Nenhum anotado'}</p>
           </div>
           <div class="text-right shrink-0">
-            <span class="block text-xl font-bold text-brand-600 dark:text-brand-500">${s.ufcScore.toFixed(2)}</span>
+            <span class="block text-xl font-bold text-brand-600 dark:text-brand-500">${s.ufcScore.toFixed(2).replace('.', ',')}</span>
             <span class="text-[10px] text-brand-800/70 dark:text-brand-200/70 uppercase font-bold">Média UFC</span>
-            <button onclick="deleteSimulado('${s.id}')" class="block text-xs text-red-500 hover:text-red-700 mt-2 ml-auto"><i class="fa-solid fa-trash"></i></button>
+            <button type="button" onclick="deleteSimulado('${s.id}')" class="block text-xs text-red-500 hover:text-red-700 mt-2 ml-auto" aria-label="Excluir simulado"><i class="fa-solid fa-trash"></i></button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function saveNotebookError(event) {
+      event.preventDefault();
+      const subject = document.getElementById('err-subject').value;
+      const cause = document.getElementById('err-cause').value;
+      const topic = document.getElementById('err-topic').value.trim();
+      const fix = document.getElementById('err-fix').value.trim();
+      if (!topic || !fix) return;
+
+      appState.errorNotebook.unshift({
+        id: 'err-' + Date.now(),
+        subject,
+        cause,
+        topic,
+        fix,
+        reviewed: false
+      });
+      recordTodayActivity();
+      saveState();
+      event.target.reset();
+      renderErrorNotebook();
+      showToast('Erro salvo no Caderno de Erros.', 'success');
+    }
+
+    function toggleNotebookError(id) {
+      const item = appState.errorNotebook.find(e => e.id === id);
+      if (!item) return;
+      item.reviewed = !item.reviewed;
+      saveState();
+      renderErrorNotebook();
+    }
+
+    function deleteNotebookError(id) {
+      appState.errorNotebook = appState.errorNotebook.filter(e => e.id !== id);
+      saveState();
+      renderErrorNotebook();
+    }
+
+    function renderErrorNotebook() {
+      const list = document.getElementById('error-notebook-list');
+      const counter = document.getElementById('error-notebook-counter');
+      const openCount = appState.errorNotebook.filter(e => !e.reviewed).length;
+      if (counter) counter.textContent = `${openCount} abertos`;
+      if (!list) return;
+
+      if (appState.errorNotebook.length === 0) {
+        list.innerHTML = `<p class="text-xs text-brand-800/70 dark:text-brand-200/70 py-2">Nenhum erro registrado no caderno ainda.</p>`;
+        return;
+      }
+
+      list.innerHTML = appState.errorNotebook.map(e => `
+        <div class="p-3.5 rounded-xl border border-[#4BA3E3]/30 dark:border-brand-800 bg-[#F2F7FC] dark:bg-brand-950 flex items-start justify-between gap-3">
+          <div class="space-y-0.5">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-brand-600/15 text-brand-600 dark:text-brand-200">${e.subject}</span>
+              <span class="text-[11px] text-brand-800/75 dark:text-brand-200/75">${e.cause}</span>
+            </div>
+            <p class="text-sm font-bold ${e.reviewed ? 'line-through opacity-50' : 'text-brand-900 dark:text-white'}">${e.topic}</p>
+            <p class="text-xs text-brand-800/80 dark:text-brand-200/80">Revisão: ${e.fix}</p>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <button type="button" onclick="toggleNotebookError('${e.id}')" class="px-2.5 py-1.5 rounded-lg text-xs font-bold border border-[#4BA3E3]/40 dark:border-brand-800 ${e.reviewed ? 'bg-brand-600 text-white' : 'bg-white dark:bg-brand-900 text-brand-900 dark:text-white'}">
+              ${e.reviewed ? 'Revisado' : 'Marcar'}
+            </button>
+            <button type="button" onclick="deleteNotebookError('${e.id}')" class="text-xs text-red-500 hover:text-red-700 px-1.5" aria-label="Excluir erro">
+              <i class="fa-solid fa-trash"></i>
+            </button>
           </div>
         </div>
       `).join('');
@@ -1008,7 +1247,7 @@
     function renderChannels() {
       const grid = document.getElementById('channels-cards-grid');
       grid.innerHTML = Object.values(CHANNELS).map(c => `
-        <div class="bg-white dark:bg-brand-900 rounded-2xl p-5 border border-[#AED5F5]/60 dark:border-brand-800 shadow-sm flex flex-col justify-between">
+        <div class="bg-white dark:bg-brand-900 rounded-2xl p-5 border border-[#4BA3E3]/30 dark:border-brand-800 shadow-sm flex flex-col justify-between">
           <div>
             <h3 class="font-bold text-lg mb-1 text-brand-900 dark:text-white">${c.name}</h3>
             <p class="text-xs text-brand-800/75 dark:text-brand-200/75 mb-2">${c.subjects.join(' • ')}</p>
@@ -1027,7 +1266,7 @@
         const isDone = !!appState.officialChecklist[item.id];
         if (isDone) count++;
         return `
-          <label class="flex items-start gap-3 p-3 rounded-xl border border-[#AED5F5]/60 dark:border-brand-800 cursor-pointer hover:bg-[#F2F7FC] dark:hover:bg-brand-800/60 transition">
+          <label class="flex items-start gap-3 p-3 rounded-xl border border-[#4BA3E3]/30 dark:border-brand-800 cursor-pointer hover:bg-[#F2F7FC] dark:hover:bg-brand-800/60 transition">
             <input type="checkbox" onchange="toggleOfficialChecklist('${item.id}')" ${isDone ? 'checked' : ''} class="mt-0.5 w-5 h-5 rounded text-brand-600 focus:ring-brand-600" />
             <div>
               <p class="text-sm font-bold ${isDone ? 'line-through opacity-50' : 'text-brand-900 dark:text-white'}">${item.title}</p>
@@ -1087,7 +1326,7 @@
 
     function saveSimulado(event) {
       event.preventDefault();
-      const name = document.getElementById('sim-name').value;
+      const name = document.getElementById('sim-name').value.trim();
       const date = document.getElementById('sim-date').value;
       const type = document.getElementById('sim-type').value;
       const lc = Number(document.getElementById('sim-lc').value);
@@ -1095,21 +1334,21 @@
       const cn = Number(document.getElementById('sim-cn').value);
       const mt = Number(document.getElementById('sim-mt').value);
       const red = Number(document.getElementById('sim-red').value);
-      const notes = document.getElementById('sim-notes').value;
+      const notes = document.getElementById('sim-notes').value.trim();
 
       const triLC = estimateAreaTRI(lc, 'lc');
       const triCH = estimateAreaTRI(ch, 'ch');
       const triCN = estimateAreaTRI(cn, 'cn');
       const triMT = estimateAreaTRI(mt, 'mt');
-      const ufcScore = (triLC + triCH + triCN + triMT + red) / 5;
+      const ufcScore = Number(((triLC + triCH + triCN + triMT + red) / 5).toFixed(2));
 
       appState.simulados.unshift({ id: 'sim-' + Date.now(), name, date, type, lc, ch, cn, mt, red, ufcScore, notes });
       recordTodayActivity();
       saveState();
       event.target.reset();
-      document.getElementById('sim-date').valueAsDate = new Date();
+      document.getElementById('sim-date').value = getLocalDateKey();
       renderAll();
-      showToast(`Simulado salvo! Média UFC: ${ufcScore.toFixed(2)} pts`, 'success');
+      showToast(`Simulado salvo! Média UFC: ${ufcScore.toFixed(2).replace('.', ',')} pts`, 'success');
     }
 
     function deleteSimulado(id) {
@@ -1131,7 +1370,7 @@
       const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(appState, null, 2));
       const a = document.createElement('a');
       a.href = dataStr;
-      a.download = `MedUFC_Backup_${new Date().toISOString().split('T')[0]}.json`;
+      a.download = `MedUFC_Backup_${getLocalDateKey()}.json`;
       a.click();
       showToast('Backup exportado!', 'success');
     }
@@ -1149,7 +1388,8 @@
             completedLessons: imported.completedLessons || {},
             officialChecklist: imported.officialChecklist || {},
             activeDates: Array.isArray(imported.activeDates) ? imported.activeDates : [],
-            simulados: Array.isArray(imported.simulados) ? imported.simulados : []
+            simulados: Array.isArray(imported.simulados) ? imported.simulados : [],
+            errorNotebook: Array.isArray(imported.errorNotebook) ? imported.errorNotebook : []
           };
           saveState();
           applyTheme();
@@ -1157,20 +1397,23 @@
           showToast('Backup restaurado com sucesso!', 'success');
         } catch (err) {
           showToast('Erro ao ler o arquivo de backup.', 'error');
+        } finally {
+          event.target.value = '';
         }
       };
       reader.readAsText(file);
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      generateCustomAppIcons();
+      applyUnifiedBrandIconEverywhere();
       applyTheme();
       switchTab(appState.activeTab || 'dashboard');
-      document.getElementById('sim-date').valueAsDate = new Date();
+      document.getElementById('sim-date').value = getLocalDateKey();
 
-      const startJan2027 = new Date('2027-01-04T00:00:00');
+      const startJan2027 = new Date(2027, 0, 4, 0, 0, 0);
       const now = new Date();
-      const diffDays = Math.max(0, Math.ceil((startJan2027 - now) / (1000 * 60 * 60 * 24)));
+      const todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      const diffDays = Math.max(0, Math.ceil((startJan2027 - todayMidnight) / (1000 * 60 * 60 * 24)));
       document.getElementById('countdown-days').textContent = diffDays;
     });
   </script>
